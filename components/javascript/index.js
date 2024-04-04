@@ -153,10 +153,10 @@ function showSubcategories(category) {
                 addSubcategory('Unit 21', '../json/vocabulary(L4 Unit21).json');
                 break;
             case 'link-test':
-                addSubcategory('看英文選中文', './component/html/e2c.html');
-                addSubcategory('看中文選英文', './component/html/c2e.html');
-                addSubcategory('文意字彙', './component/html/test vocabulary.html');
-                addSubcategory('地獄版文意字彙', './component/html/vocabulary.html');
+                addSubcategory('看英文選中文', './components/html/e2c.html');
+                addSubcategory('看中文選英文', './components/html/c2e.html');
+                addSubcategory('文意字彙', './components/html/test vocabulary.html');
+                addSubcategory('地獄版文意字彙', './components/html/vocabulary.html');
                 break;
         }
     } else {
@@ -186,7 +186,7 @@ $(document).ready(function () {
                 const jsonFileName = selectedUrl.split('/').pop(); // 獲取 JSON 文件名
                 localStorage.setItem('selectedVocabularyUrl', selectedUrl); // 儲存選擇的 JSON 文件路徑
                 localStorage.setItem('selectedSubcategory', selectedUrl); // 儲存選擇的子類別路徑
-                window.location.href = "./component/html/card.html"; // 導航到 card.html 頁面
+                window.location.href = "./components/html/card.html"; // 導航到 card.html 頁面
             }
         }
     });
