@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>明倫單字卡</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./component/index.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1><i class="fas fa-book-open"></i> 明倫單字卡</h1>
+        <form id="vocabularyForm" class="mb-5">
+            <div class="mb-3">
+                <label for="categories" id="categories-label" class="form-label">類別:</label>
+                <select id="categories" name="category" class="form-select" onchange="showSubcategories(this.value)">
+                    <option value="">選擇類別</option>
+                    <option value="link-test">Quiz</option>
+                    <option value="Book1">Book 1</option>
+                    <option value="Book2">Book 2</option>
+                    <option value="Book3">Book 3</option>
+                    <option value="Book4">Book 4</option>
+                    <option value="單字書 Level 2">單字書 Level 2</option>
+                    <option value="單字書 Level 3">單字書 Level 3</option>
+                    <option value="單字書 Level 4">單字書 Level 4</option>
+                    <option value="ALL_PLUS_Mar">ALL PLUS March</option>
+                    <option value="ALL_PLUS_Apr">ALL PLUS April</option>
+                </select>
+            </div>
+
+            <div id="subcategory-list" class="mb-3" style="display: none;">
+                <label for="subcategories" id="subcategories-label" class="form-label">篇目:</label>
+                <select id="subcategories" name="subcategory" class="form-select">
+                    <!-- Subcategories will be populated dynamically -->
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary" style="background-color: #4b52ab; border-color: #4b52ab; color: #ffffff;"s>Go</button>
+        </form>
+        <p class="text-secondary">本應用僅提供教育用途，無任何商業行為。</p>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="./component/index.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyDrX2nYYWhjQ6IW1-lqVsp_SjUgQ6L7TXc",
+            authDomain: "mlsh-vocabulary.firebaseapp.com",
+            projectId: "mlsh-vocabulary",
+            storageBucket: "mlsh-vocabulary.appspot.com",
+            messagingSenderId: "63650314327",
+            appId: "1:63650314327:web:220c6da7b04183f8b98b12",
+            measurementId: "G-XR19ZLP7SM"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4792394423150983"
+        crossorigin="anonymous"></script>
+    <script>
+        // Get stored selections from localStorage
+        const storedCategory = localStorage.getItem('selectedCategory');
+        const storedSubcategory = localStorage.getItem('selectedSubcategory');
+
+        // Function to set the selected option in a dropdown
+        function setSelectedOption(selectElement, value) {
+            const options = selectElement.options;
+            for (let i = 0; i < options.length; i++) {
+                if (options[i].value === value) {
+                    options[i].selected = true;
+                    break;
+                }
+            }
+        }
+
+        // When the page loads, populate the dropdowns with stored selections
+        window.onload = function () {
+            const categoriesSelect = document.getElementById('categories');
+            const subcategoriesSelect = document.getElementById('subcategories');
+
+            if (storedCategory) {
+                setSelectedOption(categoriesSelect, storedCategory);
+                showSubcategories(storedCategory);
+            }
+
+            if (storedSubcategory) {
+                setSelectedOption(subcategoriesSelect, storedSubcategory);
+            }
+        };
+    </script>
+</body>
+
+</html>

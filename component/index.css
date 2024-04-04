@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+html {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+
+.link {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+.container {
+    margin-top: 10vh;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #4c4c4c;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #555;
+}
+
+.form-select {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-select:focus {
+    border-color: #6c63ff;
+    box-shadow: 0 0 0 0.2rem rgba(108, 99, 255, 0.25);
+}
+
+.btn-primary {
+    background-color: #677bfd;
+    border-color: #677bfd;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background-color: #5a4eff;
+    border-color: #5a4eff;
+    transform: translateY(-3px);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #2b2b2b;
+                color: #ffffff;
+            }
+
+            form {
+                background-color: #343a40;
+            }
+
+            .form-label {
+                color: #ffffff;
+            }
+        } */
+
+#categories-label,
+#subcategories-label {
+    float: left;
+    clear: both;
+    /* 清除浮動 */
+    margin-left: 10px;
+    /* 可以調整右邊距以增加間距 */
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1a;
+        color: #ddd;
+    }
+
+    h1 {
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.1);
+    }
+
+    form {
+        background-color: #2b2b2b;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+
+    .form-label {
+        color: #ccc;
+    }
+
+    .form-select {
+        background-color: #444;
+        color: #ddd;
+        border: 1px solid #555;
+    }
+
+    .form-select:focus {
+        border-color: #677bfd;
+        box-shadow: 0 0 0 0.2rem rgba(103, 123, 253, 0.25);
+    }
+
+    .btn-primary {
+        background-color: #677bfd;
+        border-color: #677bfd;
+        color: #fff;
+    }
+
+    .btn-primary:hover {
+        background-color: #5a4eff;/*872dd4*/
+        border-color: #5a4eff;
+    }
+}
