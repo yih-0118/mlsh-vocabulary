@@ -12,11 +12,16 @@
 
 <body>
     <div class="container">
+        <!-- 方那些東西的框框 -->
         <h1><i class="fas fa-book-open"></i> 明倫單字卡</h1>
+        <!-- 標題 -->
         <form id="vocabularyForm" class="mb-5">
+            <!-- 表單開始 -->
             <div class="mb-3">
                 <label for="categories" id="categories-label" class="form-label">類別:</label>
+                <!-- 第一篩選 -->
                 <select id="categories" name="category" class="form-select" onchange="showSubcategories(this.value)">
+                    <!-- 透過case去判斷下拉選單的種類 -->
                     <option value="">選擇類別</option>
                     <option value="link-test">Quiz</option>
                     <option value="Book1">Book 1</option>
@@ -34,10 +39,11 @@
             <div id="subcategory-list" class="mb-3" style="display: none;">
                 <label for="subcategories" id="subcategories-label" class="form-label">篇目:</label>
                 <select id="subcategories" name="subcategory" class="form-select">
-                    <!-- Subcategories will be populated dynamically -->
+                    <!-- 有case後會return到這邊 -->
                 </select>
             </div>
             <button type="submit" class="btn btn-primary" style="background-color: #4b52ab; border-color: #4b52ab; color: #ffffff;"s>Go</button>
+            <!-- 搜尋 -->
         </form>
         <p class="text-secondary">本應用僅提供教育用途，無任何商業行為。</p>
 
