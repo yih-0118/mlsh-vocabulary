@@ -234,6 +234,43 @@ class VocabularyController {
     }
 }
 
+// class MenuController {
+//     constructor(menuBtn, panel) {
+//         this.menuBtn = $(menuBtn);
+//         this.panel = $(panel);
+//         this.panel.hide();
+//         this.initEventListener();
+//     }
+
+//     initEventListener() {
+//         this.menuBtn.click(() => this.toggleMenu());
+//     }
+
+//     toggleMenu() {
+//         if (this.panel.is(':hidden')) {
+//             this.showMenu();
+//         } else {
+//             this.hideMenu();
+//         }
+//     }
+
+//     showMenu() {
+//         this.panel.show();
+//         gsap.fromTo(this.panel, { y: '-100%' }, { y: 0, ease: 'Power', duration: 0.7 });
+//     }
+
+//     hideMenu() {
+//         gsap.to(this.panel, {
+//             y: '-100%',
+//             ease: 'Power',
+//             duration: 0.5,
+//             onComplete: () => {
+//                 this.panel.hide();
+//                 gsap.set(this.panel, { y: 0 });
+//             }
+//         });
+//     }
+// }
 class MenuController {
     constructor(menuBtn, panel) {
         this.menuBtn = $(menuBtn);
@@ -256,23 +293,21 @@ class MenuController {
 
     showMenu() {
         this.panel.show();
-        gsap.fromTo(this.panel, { y: '-100%' }, { y: 0, ease: 'Power', duration: 0.7 });
+        gsap.fromTo(this.panel, { x: '-100%' }, { x: 0, ease: 'Power', duration: 0.6 });
     }
 
     hideMenu() {
         gsap.to(this.panel, {
-            y: '-100%',
+            x: '-100%',
             ease: 'Power',
-            duration: 0.7,
+            duration: 0.5,
             onComplete: () => {
                 this.panel.hide();
-                gsap.set(this.panel, { y: 0 });
+                gsap.set(this.panel, { x: 0 });
             }
         });
     }
-
 }
-
 const renderer = new VocabularyRenderer('#question', '#hint', '.list');
 const controller = new VocabularyController(renderer);
 const menuController = new MenuController('#menu', '.setting');

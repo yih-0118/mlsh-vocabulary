@@ -8,20 +8,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./components/style/index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <!-- 方那些東西的框框 -->
-        <h1><i class="fas fa-book-open"></i> 明倫單字卡</h1>
-        <!-- 標題 -->
         <form id="vocabularyForm" class="mb-5">
-            <!-- 表單開始 -->
+            <h1><i class="fas fa-book-open"></i> 明倫單字卡</h1>
             <div class="mb-3">
                 <label for="categories" id="categories-label" class="form-label">類別:</label>
-                <!-- 第一篩選 -->
                 <select id="categories" name="category" class="form-select" onchange="showSubcategories(this.value)">
-                    <!-- 透過case去判斷下拉選單的種類 -->
                     <option value="">選擇類別</option>
                     <option value="link-test">Quiz</option>
                     <option value="Book1">Book 1</option>
@@ -33,17 +29,17 @@
                     <option value="單字書 Level 4">單字書 Level 4</option>
                     <option value="ALL_PLUS_Mar">ALL PLUS March</option>
                     <option value="ALL_PLUS_Apr">ALL PLUS April</option>
+                    <option value="ALL_PLUS_May">ALL PLUS May</option>
                 </select>
             </div>
 
             <div id="subcategory-list" class="mb-3" style="display: none;">
                 <label for="subcategories" id="subcategories-label" class="form-label">篇目:</label>
                 <select id="subcategories" name="subcategory" class="form-select">
-                    <!-- 有case後會return到這邊 -->
+                    <!-- Subcategories will be populated dynamically -->
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary" style="background-color: #4b52ab; border-color: #4b52ab; color: #ffffff;"s>Go</button>
-            <!-- 搜尋 -->
+            <button type="submit" class="btn btn-primary" style="background-color: #4b52ab; border-color: #4b52ab; color: #ffffff;">Go</button>
         </form>
         <p class="text-secondary">本應用僅提供教育用途，無任何商業行為。</p>
 
@@ -79,6 +75,7 @@
         async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4792394423150983"
         crossorigin="anonymous"></script>
     <script>
+        
         // Get stored selections from localStorage
         const storedCategory = localStorage.getItem('selectedCategory');
         const storedSubcategory = localStorage.getItem('selectedSubcategory');
@@ -109,6 +106,7 @@
             }
         };
     </script>
+    
 </body>
 
 </html>

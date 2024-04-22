@@ -8,10 +8,10 @@ const app = Vue.createApp({
             correctIndex: null,
             feedback: null,
             chapters: {
-                "B1 L1": "../json/B1 L1.json", "B1 L2": "../json/B1 L2.json", "B1 L3": "../json/B1 L3.json", "B1 L4": "../json/B1 L4.json", "B1 L5": "../json/B1 L5.json", "B1 L6": "../json/B1 L6.json", "B1 L7": "../json/B1 L7.json", "B1 L8": "../json/B1 L8.json", "B1 L9": "../json/B1 L9.json", "B1 R1": "../json/B1 review 1.json", "B1 R2": "../json/B1 review 2.json", "B1 R3": "../json/B1 review 3.json", "B2 L1": "../json/B2 L1.json", "B2 L2": "../json/B2 L2.json", "B2 L3": "../json/B2 L3.json", "B2 L4": "../json/B2 L4.json", "B2 L5": "../json/B2 L5.json", "B2 L6": "../json/B2 L6.json", "B2 L7": "../json/B2 L7.json", "B2 L8": "../json/B2 L8.json", "B2 L9": "../json/B2 L9.json", "B2 R1": "../json/B2 review 1.json", "B2 R2": "../json/B2 review 2.json", "B2 R3": "../json/B2 review 3.json", "B3 L1": "../json/B3 L1.json", "B3 L2": "../json/B3 L2.json", "B3 L3": "../json/B3 L3.json", "B3 L4": "../json/B3 L4.json", "B3 L5": "../json/B3 L5.json", "B3 L6": "../json/B3 L6.json", "B3 L7": "../json/B3 L7.json", "B3 L8": "../json/B3 L8.json", "B3 L9": "../json/B3 L9.json", "B3 R1": "../json/B3 review 1.json", "B3 R2": "../json/B3 review 2.json", "B3 R3": "../json/B3 review 3.json", "B4 L1": "../json/B4 L1.json", "B4 L2": "../json/B4 L2.json", "B4 L3": "../json/B4 L3.json", "B4 L4": "../json/B4 L4.json", "B4 L5": "../json/B4 L5.json", "B4 L6": "../json/B4 L6.json", "B4 L7": "../json/B4 L7.json", "B4 L8": "../json/B4 L8.json", "B4 L9": "../json/B4 L9.json", "B4 R1": "../json/B4 review 1.json", "B4 R2": "../json/B4 review 2.json", "B4 R3": "../json/B4 review 3.json", "Vocabulary (L2 Unit1)": "../json/vocabulary(L2 Unit1).json", "Vocabulary (L2 Unit2)": "../json/vocabulary(L2 Unit2).json", "Vocabulary (L2 Unit3)": "../json/vocabulary(L2 Unit3).json", "Vocabulary (L2 Unit4)": "../json/vocabulary(L2 Unit4).json", "Vocabulary (L2 Unit5)": "../json/vocabulary(L2 Unit5).json", "Vocabulary (L2 Unit6)": "../json/vocabulary(L2 Unit6).json", "Vocabulary (L2 Unit7)": "../json/vocabulary(L2 Unit7).json", "Vocabulary (L2 Unit8)": "../json/vocabulary(L2 Unit8).json", "Vocabulary (L3 Unit1)": "../json/vocabulary(L3 Unit1).json", "Vocabulary (L3 Unit2)": "../json/vocabulary(L3 Unit2).json", "Vocabulary (L3 Unit3)": "../json/vocabulary(L3 Unit3).json", "Vocabulary (L3 Unit4)": "../json/vocabulary(L3 Unit4).json", "Vocabulary (L3 Unit5)": "../json/vocabulary(L3 Unit5).json", "Vocabulary (L3 Unit6)": "../json/vocabulary(L3 Unit6).json", "Vocabulary (L3 Unit7)": "../json/vocabulary(L3 Unit7).json", "Vocabulary (L3 Unit8)": "../json/vocabulary(L3 Unit8).json", "Vocabulary (L3 Unit9)": "../json/vocabulary(L3 Unit9).json", "Vocabulary (L3 Unit10)": "../json/vocabulary(L3 Unit10).json", "Vocabulary (L3 Unit11)": "../json/vocabulary(L3 Unit11).json", "Vocabulary (L3 Unit12)": "../json/vocabulary(L3 Unit12).json", "Vocabulary (L3 Unit13)": "../json/vocabulary(L3 Unit13).json", "Vocabulary (L3 Unit14)": "../json/vocabulary(L3 Unit14).json", "Vocabulary (L3 Unit15)": "../json/vocabulary(L3 Unit15).json", "Vocabulary (L3 Unit16)": "../json/vocabulary(L3 Unit16).json", "Vocabulary (L3 Unit17)": "../json/vocabulary(L3 Unit17).json", "Vocabulary (L3 Unit18)": "../json/vocabulary(L3 Unit18).json", "Vocabulary (L3 Unit19)": "../json/vocabulary(L3 Unit19).json", "Vocabulary (L3 Unit20)": "../json/vocabulary(L3 Unit20).json", "Vocabulary (L3 Unit21)": "../json/vocabulary(L3 Unit21).json", "Vocabulary (L4 Unit1)": "../json/vocabulary(L4 Unit1).json", "Vocabulary (L4 Unit2)": "../json/vocabulary(L4 Unit2).json", "Vocabulary (L4 Unit3)": "../json/vocabulary(L4 Unit3).json", "Vocabulary (L4 Unit4)": "../json/vocabulary(L4 Unit4).json", "Vocabulary (L4 Unit5)": "../json/vocabulary(L4 Unit5).json", "Vocabulary (L4 Unit6)": "../json/vocabulary(L4 Unit6).json", "Vocabulary (L4 Unit7)": "../json/vocabulary(L4 Unit7).json", "Vocabulary (L4 Unit8)": "../json/vocabulary(L4 Unit8).json", "Vocabulary (L4 Unit9)": "../json/vocabulary(L4 Unit9).json", "Vocabulary (L4 Unit10)": "../json/vocabulary(L4 Unit10).json", "Vocabulary (L4 Unit11)": "../json/vocabulary(L4 Unit11).json", "Vocabulary (L4 Unit12)": "../json/vocabulary(L4 Unit12).json", "Vocabulary (L4 Unit13)": "../json/vocabulary(L4 Unit13).json", "Vocabulary (L4 Unit14)": "../json/vocabulary(L4 Unit14).json", "Vocabulary (L4 Unit15)": "../json/vocabulary(L4 Unit15).json", "Vocabulary (L4 Unit16)": "../json/vocabulary(L4 Unit16).json", "Vocabulary (L4 Unit17)": "../json/vocabulary(L4 Unit17).json", "Vocabulary (L4 Unit18)": "../json/vocabulary(L4 Unit18).json", "Vocabulary (L4 Unit19)": "../json/vocabulary(L4 Unit19).json", "Vocabulary (L4 Unit20)": "../json/vocabulary(L4 Unit20).json", "Vocabulary (L4 Unit21)": "../json/vocabulary(L4 Unit21).json", "ALL PLUS 1/15~1/31": "../json/開學考雜誌.json", "ALL PLUS Mar. CNN_News": "../json/ALL_PLUS_Mar_CNN_News.json", "ALL PLUS Mar. Unit 1": "../json/ALL_PLUS_Mar_Unit_1.json", "ALL PLUS Mar. Unit 2": "../json/ALL_PLUS_Mar_Unit_2.json", "ALL PLUS Mar. Unit 3": "../json/ALL_PLUS_Mar_Unit_3.json", "ALL PLUS Mar. Unit 4": "../json/ALL_PLUS_Mar_Unit_4.json", "ALL PLUS Mar. Unit 5": "../json/ALL_PLUS_Mar_Unit_5.json", "ALL PLUS Mar. Unit 6": "../json/ALL_PLUS_Mar_Unit_6.json", "ALL PLUS Mar. Unit 7": "../json/ALL_PLUS_Mar_Unit_7.json", "ALL PLUS Mar. Unit 9": "../json/ALL_PLUS_Mar_Unit_9.json", "ALL PLUS Mar. Unit 10": "../json/ALL_PLUS_Mar_Unit_10.json", "ALL PLUS Mar. Unit 11": "../json/ALL_PLUS_Mar_Unit_11.json", "ALL PLUS Mar. Unit 12": "../json/ALL_PLUS_Mar_Unit_12.json", "ALL PLUS Mar. Unit 13": "../json/ALL_PLUS_Mar_Unit_13.json", "ALL PLUS Mar. Unit 14": "../json/ALL_PLUS_Mar_Unit_14.json", "ALL PLUS Mar. Unit 15": "../json/ALL_PLUS_Mar_Unit_15.json", "ALL PLUS Apr. Unit 1": "../json/ALL_PLUS_Apr_Unit_1.json", "ALL PLUS Apr. Unit 2": "../json/ALL_PLUS_Apr_Unit_2.json", "ALL PLUS Apr. Unit 3": "../json/ALL_PLUS_Apr_Unit_3.json", "ALL PLUS Apr. Unit 4": "../json/ALL_PLUS_Apr_Unit_4.json", "ALL PLUS Apr. Unit 5": "../json/ALL_PLUS_Apr_Unit_5.json", "ALL PLUS Apr. Unit 6": "../json/ALL_PLUS_Apr_Unit_6.json", "ALL PLUS Apr. Unit 7": "../json/ALL_PLUS_Apr_Unit_7.json", "ALL PLUS Apr. Unit 8": "../json/ALL_PLUS_Apr_Unit_8.json", "ALL PLUS Apr. Unit 9": "../json/ALL_PLUS_Apr_Unit_9.json", "ALL PLUS Apr. Unit 10": "../json/ALL_PLUS_Apr_Unit_10.json", "ALL PLUS Apr. Unit 12": "../json/ALL_PLUS_Apr_Unit_12.json", "ALL PLUS Apr. Unit 13": "../json/ALL_PLUS_Apr_Unit_13.json", "ALL PLUS Apr. Unit 14": "../json/ALL_PLUS_Apr_Unit_14.json",
+                "B1 L1": "../json/B1 L1.json", "B1 L2": "../json/B1 L2.json", "B1 L3": "../json/B1 L3.json", "B1 L4": "../json/B1 L4.json", "B1 L5": "../json/B1 L5.json", "B1 L6": "../json/B1 L6.json", "B1 L7": "../json/B1 L7.json", "B1 L8": "../json/B1 L8.json", "B1 L9": "../json/B1 L9.json", "B1 R1": "../json/B1 review 1.json", "B1 R2": "../json/B1 review 2.json", "B1 R3": "../json/B1 review 3.json", "B2 L1": "../json/B2 L1.json", "B2 L2": "../json/B2 L2.json", "B2 L3": "../json/B2 L3.json", "B2 L4": "../json/B2 L4.json", "B2 L5": "../json/B2 L5.json", "B2 L6": "../json/B2 L6.json", "B2 L7": "../json/B2 L7.json", "B2 L8": "../json/B2 L8.json", "B2 L9": "../json/B2 L9.json", "B2 R1": "../json/B2 review 1.json", "B2 R2": "../json/B2 review 2.json", "B2 R3": "../json/B2 review 3.json", "B3 L1": "../json/B3 L1.json", "B3 L2": "../json/B3 L2.json", "B3 L3": "../json/B3 L3.json", "B3 L4": "../json/B3 L4.json", "B3 L5": "../json/B3 L5.json", "B3 L6": "../json/B3 L6.json", "B3 L7": "../json/B3 L7.json", "B3 L8": "../json/B3 L8.json", "B3 L9": "../json/B3 L9.json", "B3 R1": "../json/B3 review 1.json", "B3 R2": "../json/B3 review 2.json", "B3 R3": "../json/B3 review 3.json", "B4 L1": "../json/B4 L1.json", "B4 L2": "../json/B4 L2.json", "B4 L3": "../json/B4 L3.json", "B4 L4": "../json/B4 L4.json", "B4 L5": "../json/B4 L5.json", "B4 L6": "../json/B4 L6.json", "B4 L7": "../json/B4 L7.json", "B4 L8": "../json/B4 L8.json", "B4 L9": "../json/B4 L9.json", "B4 R1": "../json/B4 review 1.json", "B4 R2": "../json/B4 review 2.json", "B4 R3": "../json/B4 review 3.json", "Vocabulary (L2 Unit1)": "../json/vocabulary(L2 Unit1).json", "Vocabulary (L2 Unit2)": "../json/vocabulary(L2 Unit2).json", "Vocabulary (L2 Unit3)": "../json/vocabulary(L2 Unit3).json", "Vocabulary (L2 Unit4)": "../json/vocabulary(L2 Unit4).json", "Vocabulary (L2 Unit5)": "../json/vocabulary(L2 Unit5).json", "Vocabulary (L2 Unit6)": "../json/vocabulary(L2 Unit6).json", "Vocabulary (L2 Unit7)": "../json/vocabulary(L2 Unit7).json", "Vocabulary (L2 Unit8)": "../json/vocabulary(L2 Unit8).json", "Vocabulary (L3 Unit1)": "../json/vocabulary(L3 Unit1).json", "Vocabulary (L3 Unit2)": "../json/vocabulary(L3 Unit2).json", "Vocabulary (L3 Unit3)": "../json/vocabulary(L3 Unit3).json", "Vocabulary (L3 Unit4)": "../json/vocabulary(L3 Unit4).json", "Vocabulary (L3 Unit5)": "../json/vocabulary(L3 Unit5).json", "Vocabulary (L3 Unit6)": "../json/vocabulary(L3 Unit6).json", "Vocabulary (L3 Unit7)": "../json/vocabulary(L3 Unit7).json", "Vocabulary (L3 Unit8)": "../json/vocabulary(L3 Unit8).json", "Vocabulary (L3 Unit9)": "../json/vocabulary(L3 Unit9).json", "Vocabulary (L3 Unit10)": "../json/vocabulary(L3 Unit10).json", "Vocabulary (L3 Unit11)": "../json/vocabulary(L3 Unit11).json", "Vocabulary (L3 Unit12)": "../json/vocabulary(L3 Unit12).json", "Vocabulary (L3 Unit13)": "../json/vocabulary(L3 Unit13).json", "Vocabulary (L3 Unit14)": "../json/vocabulary(L3 Unit14).json", "Vocabulary (L3 Unit15)": "../json/vocabulary(L3 Unit15).json", "Vocabulary (L3 Unit16)": "../json/vocabulary(L3 Unit16).json", "Vocabulary (L3 Unit17)": "../json/vocabulary(L3 Unit17).json", "Vocabulary (L3 Unit18)": "../json/vocabulary(L3 Unit18).json", "Vocabulary (L3 Unit19)": "../json/vocabulary(L3 Unit19).json", "Vocabulary (L3 Unit20)": "../json/vocabulary(L3 Unit20).json", "Vocabulary (L3 Unit21)": "../json/vocabulary(L3 Unit21).json", "Vocabulary (L4 Unit1)": "../json/vocabulary(L4 Unit1).json", "Vocabulary (L4 Unit2)": "../json/vocabulary(L4 Unit2).json", "Vocabulary (L4 Unit3)": "../json/vocabulary(L4 Unit3).json", "Vocabulary (L4 Unit4)": "../json/vocabulary(L4 Unit4).json", "Vocabulary (L4 Unit5)": "../json/vocabulary(L4 Unit5).json", "Vocabulary (L4 Unit6)": "../json/vocabulary(L4 Unit6).json", "Vocabulary (L4 Unit7)": "../json/vocabulary(L4 Unit7).json", "Vocabulary (L4 Unit8)": "../json/vocabulary(L4 Unit8).json", "Vocabulary (L4 Unit9)": "../json/vocabulary(L4 Unit9).json", "Vocabulary (L4 Unit10)": "../json/vocabulary(L4 Unit10).json", "Vocabulary (L4 Unit11)": "../json/vocabulary(L4 Unit11).json", "Vocabulary (L4 Unit12)": "../json/vocabulary(L4 Unit12).json", "Vocabulary (L4 Unit13)": "../json/vocabulary(L4 Unit13).json", "Vocabulary (L4 Unit14)": "../json/vocabulary(L4 Unit14).json", "Vocabulary (L4 Unit15)": "../json/vocabulary(L4 Unit15).json", "Vocabulary (L4 Unit16)": "../json/vocabulary(L4 Unit16).json", "Vocabulary (L4 Unit17)": "../json/vocabulary(L4 Unit17).json", "Vocabulary (L4 Unit18)": "../json/vocabulary(L4 Unit18).json", "Vocabulary (L4 Unit19)": "../json/vocabulary(L4 Unit19).json", "Vocabulary (L4 Unit20)": "../json/vocabulary(L4 Unit20).json", "Vocabulary (L4 Unit21)": "../json/vocabulary(L4 Unit21).json", "ALL PLUS 1/15~1/31": "../json/開學考雜誌.json", "ALL PLUS Mar. CNN_News": "../json/ALL_PLUS_Mar_CNN_News.json", "ALL PLUS Mar. Unit 1": "../json/ALL_PLUS_Mar_Unit_1.json", "ALL PLUS Mar. Unit 2": "../json/ALL_PLUS_Mar_Unit_2.json", "ALL PLUS Mar. Unit 3": "../json/ALL_PLUS_Mar_Unit_3.json", "ALL PLUS Mar. Unit 4": "../json/ALL_PLUS_Mar_Unit_4.json", "ALL PLUS Mar. Unit 5": "../json/ALL_PLUS_Mar_Unit_5.json", "ALL PLUS Mar. Unit 6": "../json/ALL_PLUS_Mar_Unit_6.json", "ALL PLUS Mar. Unit 7": "../json/ALL_PLUS_Mar_Unit_7.json", "ALL PLUS Mar. Unit 9": "../json/ALL_PLUS_Mar_Unit_9.json", "ALL PLUS Mar. Unit 10": "../json/ALL_PLUS_Mar_Unit_10.json", "ALL PLUS Mar. Unit 11": "../json/ALL_PLUS_Mar_Unit_11.json", "ALL PLUS Mar. Unit 12": "../json/ALL_PLUS_Mar_Unit_12.json", "ALL PLUS Mar. Unit 13": "../json/ALL_PLUS_Mar_Unit_13.json", "ALL PLUS Mar. Unit 14": "../json/ALL_PLUS_Mar_Unit_14.json", "ALL PLUS Mar. Unit 15": "../json/ALL_PLUS_Mar_Unit_15.json", "ALL PLUS Apr. Unit 1": "../json/ALL_PLUS_Apr_Unit_1.json", "ALL PLUS Apr. Unit 2": "../json/ALL_PLUS_Apr_Unit_2.json", "ALL PLUS Apr. Unit 3": "../json/ALL_PLUS_Apr_Unit_3.json", "ALL PLUS Apr. Unit 4": "../json/ALL_PLUS_Apr_Unit_4.json", "ALL PLUS Apr. Unit 5": "../json/ALL_PLUS_Apr_Unit_5.json", "ALL PLUS Apr. Unit 6": "../json/ALL_PLUS_Apr_Unit_6.json", "ALL PLUS Apr. Unit 7": "../json/ALL_PLUS_Apr_Unit_7.json", "ALL PLUS Apr. Unit 8": "../json/ALL_PLUS_Apr_Unit_8.json", "ALL PLUS Apr. Unit 9": "../json/ALL_PLUS_Apr_Unit_9.json", "ALL PLUS Apr. Unit 10": "../json/ALL_PLUS_Apr_Unit_10.json", "ALL PLUS Apr. Unit 12": "../json/ALL_PLUS_Apr_Unit_12.json", "ALL PLUS Apr. Unit 13": "../json/ALL_PLUS_Apr_Unit_13.json", "ALL PLUS Apr. Unit 14": "../json/ALL_PLUS_Apr_Unit_14.json", "ALL PLUS May Unit 1": "../json/ALL_PLUS_Apr_Unit_1.json", "ALL PLUS May Unit 2": "../json/ALL_PLUS_Apr_Unit_2.json", "ALL PLUS May Unit 3": "../json/ALL_PLUS_Apr_Unit_3.json", "ALL PLUS May Unit 4": "../json/ALL_PLUS_Apr_Unit_4.json", "ALL PLUS May Unit 5": "../json/ALL_PLUS_Apr_Unit_5.json", "ALL PLUS May Unit 6": "../json/ALL_PLUS_Apr_Unit_6.json", "ALL PLUS May Unit 7": "../json/ALL_PLUS_Apr_Unit_7.json", "ALL PLUS May Unit 8": "../json/ALL_PLUS_Apr_Unit_8.json", "ALL PLUS May Unit 10": "../json/ALL_PLUS_Apr_Unit_10.json", "ALL PLUS May Unit 12": "../json/ALL_PLUS_Apr_Unit_12.json", "ALL PLUS May Unit 13": "../json/ALL_PLUS_Apr_Unit_13.json", "ALL PLUS May Unit 14": "../json/ALL_PLUS_Apr_Unit_14.json", "ALL PLUS May Unit 15": "../json/ALL_PLUS_MayUnit_15.json", "ALL PLUS May Unit 16": "../json/ALL_PLUS_Apr_Unit_16.json"
             },
             selectedChapter: null,
-            isEnglishToChineseMode: true,
+            isEnglishToChineseMode: 1,
             score: 0,
             currentQuestionIndex: 0,
             timeLeft: 0, // 60 seconds
@@ -20,6 +20,43 @@ const app = Vue.createApp({
             showModal: false, // 新增控制彈出小畫面的屬性
             showResultModal: false, // 新增控制測驗結果彈出小畫面的屬性
             wrongAnswers: [],
+            isPaused: false,
+            books: {
+                'Book1': ['請選取章節', 'B1 L1', 'B1 L2', 'B1 L3', 'B1 L4', 'B1 L5', 'B1 L6', 'B1 L7', 'B1 L8', 'B1 L9', 'B1 R1', 'B1 R2', 'B1 R3'],
+                'Book2': ['請選取章節','B2 L1', 'B2 L2', 'B2 L3', 'B2 L4', 'B2 L5', 'B2 L6', 'B2 L7', 'B2 L8', 'B2 L9', 'B2 R1', 'B2 R2', 'B2 R3'],
+                'Book3': ['請選取章節','B3 L1', 'B3 L2', 'B3 L3', 'B3 L4', 'B3 L5', 'B3 L6', 'B3 L7', 'B3 L8', 'B3 L9', 'B3 R1', 'B3 R2', 'B3 R3'],
+                'Book4': ['請選取章節','B4 L1', 'B4 L2', 'B4 L3', 'B4 L4', 'B4 L5', 'B4 L6', 'B4 L7', 'B4 L8', 'B4 L9', 'B4 R1', 'B4 R2', 'B4 R3'],
+                'Level 2': ['請選取章節',
+                    'Vocabulary (L2 Unit1)', 'Vocabulary (L2 Unit2)', 'Vocabulary (L2 Unit3)', 'Vocabulary (L2 Unit4)', 'Vocabulary (L2 Unit5)',
+                    'Vocabulary (L2 Unit6)', 'Vocabulary (L2 Unit7)', 'Vocabulary (L2 Unit8)'
+                ],
+                'Level 3': ['請選取章節',
+                    'Vocabulary (L3 Unit1)', 'Vocabulary (L3 Unit2)',
+                    'Vocabulary (L3 Unit3)', 'Vocabulary (L3 Unit4)', 'Vocabulary (L3 Unit5)', 'Vocabulary (L3 Unit6)', 'Vocabulary (L3 Unit7)',
+                    'Vocabulary (L3 Unit8)', 'Vocabulary (L3 Unit9)', 'Vocabulary (L3 Unit10)', 'Vocabulary (L3 Unit11)', 'Vocabulary (L3 Unit12)',
+                    'Vocabulary (L3 Unit13)', 'Vocabulary (L3 Unit14)', 'Vocabulary (L3 Unit15)', 'Vocabulary (L3 Unit16)', 'Vocabulary (L3 Unit17)',
+                    'Vocabulary (L3 Unit18)', 'Vocabulary (L3 Unit19)', 'Vocabulary (L3 Unit20)', 'Vocabulary (L3 Unit21)',
+                ],
+                'Level 4': ['請選取章節',
+                    'Vocabulary (L4 Unit1)',
+                    'Vocabulary (L4 Unit2)', 'Vocabulary (L4 Unit3)', 'Vocabulary (L4 Unit4)', 'Vocabulary (L4 Unit5)', 'Vocabulary (L4 Unit6)',
+                    'Vocabulary (L4 Unit7)', 'Vocabulary (L4 Unit8)', 'Vocabulary (L4 Unit9)', 'Vocabulary (L4 Unit10)', 'Vocabulary (L4 Unit11)',
+                    'Vocabulary (L4 Unit12)', 'Vocabulary (L4 Unit13)', 'Vocabulary (L4 Unit14)', 'Vocabulary (L4 Unit15)', 'Vocabulary (L4 Unit16)',
+                    'Vocabulary (L4 Unit17)', 'Vocabulary (L4 Unit18)', 'Vocabulary (L4 Unit19)', 'Vocabulary (L4 Unit20)', 'Vocabulary (L4 Unit21)'
+                ],
+                'ALL_PLUS_Mar': ['請選取章節','ALL PLUS Mar. Unit 1', 'ALL PLUS Mar. Unit 2', 'ALL PLUS Mar. Unit 3',
+                    'ALL PLUS Mar. Unit 4', 'ALL PLUS Mar. Unit 5', 'ALL PLUS Mar. Unit 6', 'ALL PLUS Mar. Unit 7', 'ALL PLUS Mar. Unit 9',
+                    'ALL PLUS Mar. Unit 10', 'ALL PLUS Mar. Unit 11', 'ALL PLUS Mar. Unit 12', 'ALL PLUS Mar. Unit 13', 'ALL PLUS Mar. Unit 14',
+                    'ALL PLUS Mar. Unit 15'],    
+                'ALL_PLUS_Apr': ['請選取章節','ALL PLUS Apr. Unit 1', 'ALL PLUS Apr. Unit 2', 'ALL PLUS Apr. Unit 3', 'ALL PLUS Apr. Unit 4',
+                    'ALL PLUS Apr. Unit 5', 'ALL PLUS Apr. Unit 6', 'ALL PLUS Apr. Unit 7', 'ALL PLUS Apr. Unit 8', 'ALL PLUS Apr. Unit 9',
+                    'ALL PLUS Apr. Unit 10', 'ALL PLUS Apr. Unit 12', 'ALL PLUS Apr. Unit 13', 'ALL PLUS Apr. Unit 14'],
+                'ALL_PLUS_May': ['請選取章節','ALL PLUS May Unit 1',
+                    'ALL PLUS May Unit 2', 'ALL PLUS May Unit 3', 'ALL PLUS May Unit 4', 'ALL PLUS May Unit 5', 'ALL PLUS May Unit 6',
+                    'ALL PLUS May Unit 7', 'ALL PLUS May Unit 8', 'ALL PLUS May Unit 10', 'ALL PLUS May Unit 12', 'ALL PLUS May Unit 13',
+                    'ALL PLUS May Unit 14', 'ALL PLUS May Unit 15', 'ALL PLUS May Unit 16']                           // 添加更多書籍和對應的章節
+            },
+            selectedBook: null,
         };
     },
     mounted() {
@@ -33,6 +70,26 @@ const app = Vue.createApp({
         }
     },
     methods: {
+        filterChapters(book) {
+            this.selectedBook = book;
+            const chapterSelect = document.getElementById('chapterSelect');
+            chapterSelect.disabled = !book;
+            chapterSelect.innerHTML = '';
+            if (book) {
+                const chapters = this.books[book];
+                chapters.forEach(chapter => {
+                    const option = document.createElement('option');
+                    option.value = this.chapters[chapter];
+                    option.textContent = chapter;
+                    chapterSelect.appendChild(option);
+                });
+            } else {
+                const option = document.createElement('option');
+                option.value = '';
+                option.textContent = '請先選擇書籍';
+                chapterSelect.appendChild(option);
+            }
+        },
         loadChapter(chapter) {
             fetch(chapter)
                 .then(response => response.json())
@@ -120,18 +177,72 @@ const app = Vue.createApp({
             this.isQuizCompleted = false;
             this.wrongAnswers = [];
         },
-        startTimer() {
+        // startTimer() {
+        //     clearInterval(this.timer);
+        //     this.timeLeft = 10; // 將時間設為 10 秒
+        //     this.timer = setInterval(() => {
+        //         this.timeLeft--;
+        //         if (this.timeLeft === 0) {
+        //             clearInterval(this.timer);
+        //             // 處理時間到的邏輯,例如:
+        //             this.feedback = '時間到，正確答案是：' + (this.isEnglishToChineseMode ? this.currentWord.vocabulary : this.currentWord.vocabulary);
+        //             this.nextWord(); // 跳到下一題
+        //         }
+        //     }, 1000);
+        // },
+        togglePause() {
+            if (this.isPaused) {
+                this.isPaused = false;
+                this.startTimer(this.timeLeft); // 從剩餘時間繼續
+
+                // 啟用所有選項
+                const options = document.querySelectorAll('.option');
+                options.forEach(option => {
+                    option.style.pointerEvents = 'auto';
+                    option.style.color = ''; // 恢復選項背景色
+                });
+
+                // 恢復問題文字背景色
+                const questionCards = document.querySelectorAll('.question-card li');
+                questionCards.forEach(card => {
+                    card.style.color = '';
+                });
+            } else {
+                this.isPaused = true;
+                clearInterval(this.timer);
+                const containerBackgroundColor = getComputedStyle(document.querySelector('.option')).backgroundColor;
+                const questionBackgroundColor = getComputedStyle(document.querySelector('.question-card')).backgroundColor;
+
+                // 隱藏選項文字
+                const options = document.querySelectorAll('.option');
+                options.forEach(option => {
+                    option.style.color = containerBackgroundColor;
+                });
+
+                // 隱藏問題文字
+                const questionCards = document.querySelectorAll('.question-card li');
+                questionCards.forEach(card => {
+                    card.style.color = questionBackgroundColor; // 設置與背景相同的背景色
+                });
+                options.forEach(option => {
+                    option.style.pointerEvents = 'none';
+                });
+            }
+        },
+        startTimer(initialTime) {
             clearInterval(this.timer);
-            this.timeLeft = 10; // 將時間設為 10 秒
-            this.timer = setInterval(() => {
-                this.timeLeft--;
-                if (this.timeLeft === 0) {
-                    clearInterval(this.timer);
-                    // 處理時間到的邏輯,例如:
-                    this.feedback = '時間到，正確答案是：' + (this.isEnglishToChineseMode ? this.currentWord.vocabulary : this.currentWord.vocabulary);
-                    this.nextWord(); // 跳到下一題
-                }
-            }, 1000);
+            if (!this.isPaused) {
+                this.timeLeft = initialTime || 10; // 將時間設為10秒或剩餘時間
+                this.timer = setInterval(() => {
+                    this.timeLeft--;
+                    if (this.timeLeft === 0) {
+                        clearInterval(this.timer);
+                        // 處理時間到的邏輯,例如:
+                        this.feedback = '時間到，正確答案是：' + (this.isEnglishToChineseMode ? this.currentWord.vocabulary : this.currentWord.chinese);
+                        this.nextWord(); // 跳到下一題
+                    }
+                }, 1000);
+            }
         },
         formatTime(time) {
             const minutes = Math.floor(time / 60);
@@ -141,6 +252,7 @@ const app = Vue.createApp({
         shuffleArray(array) {
             return array.sort(() => Math.random() - 0.5);
         }
-    }
+    },
+
 });
 app.mount('#app');

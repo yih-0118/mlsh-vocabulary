@@ -40,6 +40,22 @@ function showSubcategories(category) {
                 addSubcategory('Unit 13', '../json/ALL_PLUS_Apr_Unit_13.json');
                 addSubcategory('Unit 14', '../json/ALL_PLUS_Apr_Unit_14.json');
                 break;
+            case 'ALL_PLUS_May':
+                addSubcategory('Unit 1', '../json/ALL_PLUS_May_Unit_1.json');
+                addSubcategory('Unit 2', '../json/ALL_PLUS_May_Unit_2.json');
+                addSubcategory('Unit 3', '../json/ALL_PLUS_May_Unit_3.json');
+                addSubcategory('Unit 4', '../json/ALL_PLUS_May_Unit_4.json');
+                addSubcategory('Unit 5', '../json/ALL_PLUS_May_Unit_5.json');
+                addSubcategory('Unit 6', '../json/ALL_PLUS_May_Unit_6.json');
+                addSubcategory('Unit 7', '../json/ALL_PLUS_May_Unit_7.json');
+                addSubcategory('Unit 8', '../json/ALL_PLUS_May_Unit_8.json');
+                addSubcategory('Unit 10', '../json/ALL_PLUS_May_Unit_10.json');
+                addSubcategory('Unit 12', '../json/ALL_PLUS_May_Unit_12.json');
+                addSubcategory('Unit 13', '../json/ALL_PLUS_May_Unit_13.json');
+                addSubcategory('Unit 14', '../json/ALL_PLUS_May_Unit_14.json');
+                addSubcategory('Unit 15', '../json/ALL_PLUS_May_Unit_15.json');
+                addSubcategory('Unit 16', '../json/ALL_PLUS_May_Unit_16.json');
+                break;
             case 'Book1':
                 addSubcategory('Lesson 1', '../json/B1 L1.json');
                 addSubcategory('Lesson 2', '../json/B1 L2.json');

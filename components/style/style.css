@@ -1,4 +1,7 @@
 /* style.css */
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 html, body {
     height: 100%;
@@ -68,7 +71,7 @@ html {
     text-align: left;
     position: absolute;
     left: 5%;
-    bottom: 15%;
+    bottom: 10%;
 }
 
 #answerBtn {
@@ -88,7 +91,7 @@ html {
     text-align: right;
     position: absolute;
     right: 5%;
-    bottom: 15%;
+    bottom: 10%;
 }
 
 #prev {
@@ -146,9 +149,9 @@ html {
     align-items: center;
 }
 
-/* #ccc {
+#ccc {
     margin-top: 10%;
-} */
+}
 
 .header>div {
     margin: 0 3%;
@@ -172,12 +175,12 @@ html {
     justify-content: space-around;
 }
 
-/* .option-row {
+.option-row {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
-} */
+}
 
 .block>table {
     width: 100%;

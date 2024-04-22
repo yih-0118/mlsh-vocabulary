@@ -349,7 +349,9 @@
         <div class="mb-4">
             <span>分數： {{ score }} / {{ vocabularies.length }}</span>
             <span class="ms-4">剩餘時間: {{ formatTime(timeLeft) }}</span>
-
+            <!-- <button @click="togglePause" class="pause-button">
+                {{ isPaused ? '繼續' : '暫停' }}
+            </button> -->
         </div>
         <!-- 提示和單字選項 -->
         <div v-if="currentWord">
