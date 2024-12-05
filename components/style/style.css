@@ -1,11 +1,9 @@
 /* style.css */
-
-
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 html, body {
     height: 100%;
     overflow: hidden;
+    touch-action: manipulation;
 }
 
 .app {
@@ -13,7 +11,7 @@ html, body {
     overflow: auto;
 }
 
-html {
+html,body {
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -42,10 +40,14 @@ html {
 .btn:focus {
     outline-offset: 3px;
 }
-
-#menu {
+.btn:hover, .btn:focus {
+    background-color: #8f42f5;
+    transform: scale(1.1); 
+    transition: background-color 0.3s, transform 0.3s; 
+}
+#house {
     position: absolute;
-    top: 4%;
+    top: 5%;
     left: 5%;
     display: flex;
     justify-content: center;
@@ -54,7 +56,17 @@ html {
     height: 20px;
     padding: 10px;
 }
-
+#menu {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+}
 .round {
     border-radius: 100%;
 }
@@ -194,12 +206,12 @@ html {
 
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: #161616;
+        background-color: #000000;
         color: rgb(255, 255, 255);
     }
 
     .setting {
-        background-color: #161616;
+        background-color: #000000;
         color: rgb(255, 255, 255);
         overflow-y: scroll;
     }
@@ -246,7 +258,7 @@ html {
     -moz-appearance: none;
     appearance: none;
     width: 50px;
-    height: 50px;
+    height: 35px;
     border-radius: 50%;
     border: none;
     outline: none;
@@ -262,7 +274,7 @@ html {
 
 #color-picker::-webkit-color-swatch {
     border: none;
-    border-radius: 50%;
+    border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -270,12 +282,12 @@ html {
 
 @media (prefers-color-scheme: light) {
     body {
-        background-color: #161616;
+        background-color: #000000;
         color: rgb(255, 255, 255);
     }
 
     .setting {
-        background-color: #161616;
+        background-color: #000000;
         color: rgb(255, 255, 255);
         overflow-y: scroll;
     }
@@ -365,4 +377,51 @@ input:checked+.slider:before {
     100% {
         transform: translateX(0);
     }
+}
+.list {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .list th, .list td {
+    padding-top: 15px;
+    text-align: center;
+  }
+  #chinese-header{
+    padding: auto 10px;
+  }
+/* 單字區表格樣式 */
+.list {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.underline,
+.list td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.list th {
+    font-weight: bold;
+}
+.hidden {
+    display: none;
+}
+#search-input {
+    background-color: #161616;
+    color: #ddd;
+    font-size: 16px;
+    margin-top: 2%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+#search-input:focus {
+    border-color: #66afe9;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
 }

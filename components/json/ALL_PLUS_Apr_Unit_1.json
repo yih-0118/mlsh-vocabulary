@@ -1,1 +1,54 @@
-{"vocabularies": [{"vocabulary": "feast", "partOfSpeech": "n.", "chinese": "盛宴、宴席"}, {"vocabulary": "defeat", "partOfSpeech": "v.", "chinese": "擊敗、戰勝"}, {"vocabulary": "defeat", "partOfSpeech": "n.", "chinese": "戰敗、失敗"}, {"vocabulary": "flee", "partOfSpeech": "v.", "chinese": "逃跑、逃離（作及物或不及物用）"}, {"vocabulary": "cave", "partOfSpeech": "n.", "chinese": "洞穴、山洞"}, {"vocabulary": "eventually", "partOfSpeech": "adv.", "chinese": "最後、結果；最終"}, {"vocabulary": "poisonous", "partOfSpeech": "adj.", "chinese": "有毒的；引起中毒的"}, {"vocabulary": "reward", "partOfSpeech": "n.", "chinese": "報酬、獎賞；回報"}, {"vocabulary": "loyalty", "partOfSpeech": "n.", "chinese": "忠誠、忠實"}]}
+{
+    "vocabularies": [
+        {
+            "vocabulary": "trigger",
+            "partOfSpeech": "v.",
+            "chinese": " 引發、促使"
+        },
+        {
+            "vocabulary": "trigger",
+            "partOfSpeech": "n.",
+            "chinese": " 誘因；扳機"
+        },
+        {
+            "vocabulary": "cluster",
+            "partOfSpeech": "v.",
+            "chinese": " 聚集、群聚（可作及物或不及物用）"
+        },
+        {
+            "vocabulary": "cluster",
+            "partOfSpeech": "n.",
+            "chinese": " （聚集的）一叢、一束、一群"
+        },
+        {
+            "vocabulary": "allergy",
+            "partOfSpeech": "n.",
+            "chinese": " 過敏反應、過敏症"
+        },
+        {
+            "vocabulary": "symptom",
+            "partOfSpeech": "n.",
+            "chinese": " （疾病的）症狀；徵兆"
+        },
+        {
+            "vocabulary": "psychological",
+            "partOfSpeech": "adj.",
+            "chinese": " 心理的、精神的；心理學的"
+        },
+        {
+            "vocabulary": "severe",
+            "partOfSpeech": "adj.",
+            "chinese": " 嚴重的、極惡劣的；嚴厲的"
+        },
+        {
+            "vocabulary": "fabric",
+            "partOfSpeech": "n.",
+            "chinese": " 布料、織品；（建築或社會體系的）結構"
+        },
+        {
+            "vocabulary": "measure",
+            "partOfSpeech": "n.",
+            "chinese": " 措施、辦法"
+        }
+    ]
+}

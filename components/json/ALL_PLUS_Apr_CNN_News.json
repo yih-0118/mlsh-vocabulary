@@ -1,0 +1,59 @@
+{
+    "vocabularies": [
+        {
+            "vocabulary": "halt",
+            "partOfSpeech": "v.",
+            "chinese": "停止、中止、停止前進（可作及物或不及物）"
+        },
+        {
+            "vocabulary": "halt",
+            "partOfSpeech": "n.",
+            "chinese": "停止"
+        },
+        {
+            "vocabulary": "confusion",
+            "partOfSpeech": "n.",
+            "chinese": "混亂局面、騷亂；困惑"
+        },
+        {
+            "vocabulary": "federal",
+            "partOfSpeech": "adj.",
+            "chinese": "聯邦政府的；聯邦制的"
+        },
+        {
+            "vocabulary": "enforcement",
+            "partOfSpeech": "n.",
+            "chinese": "（強制）執行、實施"
+        },
+        {
+            "vocabulary": "congress",
+            "partOfSpeech": "n.",
+            "chinese": "（美國）國會（作此義時字首大寫）；代表大會"
+        },
+        {
+            "vocabulary": "authorize",
+            "partOfSpeech": "v.",
+            "chinese": "授權；批准"
+        },
+        {
+            "vocabulary": "ground",
+            "partOfSpeech": "v.",
+            "chinese": "使停飛、禁止⋯⋯飛行"
+        },
+        {
+            "vocabulary": "ground",
+            "partOfSpeech": "n.",
+            "chinese": "地面；（具特殊用途的）場地"
+        },
+        {
+            "vocabulary": "hostile",
+            "partOfSpeech": "adj.",
+            "chinese": "懷有敵意的；不友善的"
+        },
+        {
+            "vocabulary": "interference",
+            "partOfSpeech": "n.",
+            "chinese": "干擾；干涉、干預"
+        }
+    ]
+}

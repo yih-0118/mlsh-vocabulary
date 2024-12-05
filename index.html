@@ -3,110 +3,139 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=0">
     <title>明倫單字卡</title>
+    <link rel="icon" href="./components/icon/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./components/style/index.css"> -->
     <link rel="stylesheet" href="./components/style/index.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+
+
+    </style>
 </head>
 
 <body>
     <div class="container">
         <form id="vocabularyForm" class="mb-5">
-            <h1><i class="fas fa-book-open"></i> 明倫單字卡</h1>
-            <div class="mb-3">
-                <label for="categories" id="categories-label" class="form-label">類別:</label>
-                <select id="categories" name="category" class="form-select" onchange="showSubcategories(this.value)">
+            <h1><i class="fa-solid fa-book-bookmark"></i> 明倫單字卡</h1>
+            <div class="mb-3"><label for="categories" id="categories-label" class="form-label"></label><select
+                    id="categories" name="category" class="form-select" onchange="showSubcategories(this.value)">
                     <option value="">選擇類別</option>
-                    <option value="link-test">Quiz</option>
+                    <!-- The flag is hidden in /flag.txt -->
+                    <!-- <option value="link-test">Quiz</option> -->
                     <option value="Book1">Book 1</option>
                     <option value="Book2">Book 2</option>
                     <option value="Book3">Book 3</option>
                     <option value="Book4">Book 4</option>
+                    <option value="Book5">Book 5</option>
                     <option value="單字書 Level 2">單字書 Level 2</option>
                     <option value="單字書 Level 3">單字書 Level 3</option>
                     <option value="單字書 Level 4">單字書 Level 4</option>
+                    <option value="常春藤 Level 5">常春藤 Level 5</option>
                     <option value="ALL_PLUS_Mar">ALL PLUS March</option>
                     <option value="ALL_PLUS_Apr">ALL PLUS April</option>
                     <option value="ALL_PLUS_May">ALL PLUS May</option>
-                </select>
-            </div>
-
+                    <option value="ALL_PLUS_Jun">ALL PLUS June</option>
+                    <option value="其他">其他</option>
+                </select></div>
             <div id="subcategory-list" class="mb-3" style="display: none;">
-                <label for="subcategories" id="subcategories-label" class="form-label">篇目:</label>
+                <label for="subcategories" id="subcategories-label" class="form-label"></label>
                 <select id="subcategories" name="subcategory" class="form-select">
                     <!-- Subcategories will be populated dynamically -->
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary" style="background-color: #4b52ab; border-color: #4b52ab; color: #ffffff;">Go</button>
+            <div class="g-recaptcha" data-sitekey="6LfQEfYpAAAAAElquiiBnCcnH-JObsp5K77sBVeG"></div>
+            <button class="Btn">Go</button>
+            <p id="visitCount">
+                <i class="fa-regular fa-circle-user"></i> 今日造訪次數 : <span id="visitCountNumber"></span>
+            </p>
         </form>
-        <p class="text-secondary">本應用僅提供教育用途，無任何商業行為。</p>
-
+        <!-- <p class="t">高二段考範圍</p>
+        <p class="t">五月雜誌：Unit 3, 4, 11, 13, 14</p>
+        <p class="t">六月雜誌：Unit 3, 7, 10</p>
+        <p class="t">單字書：Level 4 Unit 16 ~ 19</p> -->
     </div>
 
+    <div class="sidebar" id="sidebar">
+        <!-- <h2><u>資源</u></h2>
+        <ul>
+            <li><a href="https://github.com/yih-0118/mlsh-vocabulary">Github</a></li>
+        </ul>
+        <ul>
+            <li><a href="https://hackmd.io/@yih0118/SyE19pChp">單字卡介紹</a></li>
+        </ul> -->
+        <h2><u>點擊率</u></h2>
+        <div id="mostUsedChapters"></div>
+
+
+        <h2><u>分佈圖表</u></h2>
+        <ul>
+            <li><a
+                    href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRRWoejV4KXDc80AjasCIOP2HXS7-V5QcdwDrLtBGqtw4D9YSY4qIbAofpXQ-hon0c0dEy891YF13eh/pubchart?oid=829889471&format=image">❗️類別分佈❗️</a>
+            </li>
+            <li><a
+                    href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRRWoejV4KXDc80AjasCIOP2HXS7-V5QcdwDrLtBGqtw4D9YSY4qIbAofpXQ-hon0c0dEy891YF13eh/pubchart?oid=723178579&format=image">🔺單元分佈🔻</a>
+            </li>
+        </ul>
+        <!-- <h2><u>日誌</u></h2>
+        <li><a href="./components/html/log.html">更新紀錄</a></li> -->
+        <!-- <h2><u>分佈詳情</u></h2>
+        <li><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRRWoejV4KXDc80AjasCIOP2HXS7-V5QcdwDrLtBGqtw4D9YSY4qIbAofpXQ-hon0c0dEy891YF13eh/pubchart?oid=927367109&format=interactive">圓餅圖</a></li> -->
+        <!-- <h2><u>溫馨提醒</u></h2>
+        <p class="countdown" id="countdown"></p> -->
+        <h2><u>作者資訊</u></h2>
+        <p>聯絡資訊(按我)
+            <a href="mailto:s11131191@mlsh.tp.edu.tw?subject=明倫單字卡bug回報">
+                s11131191@mlsh.tp.edu.tw
+            </a>
+        </p>
+        <!-- <p>由一個很無聊的人所建❓</p>  -->
+    </div>
+
+    <div class="menu-icon" id="menuIcon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- 新增文字輔助 -->
+    <nav class="navbar fixed-bottom d-flex">
+        <a class="navbar-brand unique-page" href="./index.html" role="button" id="home-link">
+            <i class="fa-solid fa-house"></i>
+            <span class="text">首頁</span>
+        </a>
+        <a class="navbar-brand" href="./components/html/e2c.html" role="button" id="e2c-link">
+            <i class="fa-solid fa-language"></i> <span class="text">英到中</span>
+        </a>
+        <a class="navbar-brand" href="./components/html/c2e.html" role="button" id="c2e-link">
+            <span class="material-symbols-outlined">translate</span></i>
+            <span class="text">中到英</span>
+        </a>
+        <a class="navbar-brand" href="./components/html/test vocabulary.html" role="button" id="test-link">
+            <i class="fas fa-book icon"></i>
+            <span class="text">文意字彙</span>
+        </a>
+    </nav>
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="./components/javascript/index.js"></script>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-            apiKey: "AIzaSyDrX2nYYWhjQ6IW1-lqVsp_SjUgQ6L7TXc",
-            authDomain: "mlsh-vocabulary.firebaseapp.com",
-            projectId: "mlsh-vocabulary",
-            storageBucket: "mlsh-vocabulary.appspot.com",
-            messagingSenderId: "63650314327",
-            appId: "1:63650314327:web:220c6da7b04183f8b98b12",
-            measurementId: "G-XR19ZLP7SM"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-    </script>
-    <script 
-        async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4792394423150983"
+    <script type="module" src="./components/javascript/analytic.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4792394423150983"
         crossorigin="anonymous"></script>
+    <script src="./components/javascript/custom.js" type="module"></script>
     <script>
-        
-        // Get stored selections from localStorage
-        const storedCategory = localStorage.getItem('selectedCategory');
-        const storedSubcategory = localStorage.getItem('selectedSubcategory');
+        const themeToggle = document.getElementById('theme-toggle');
 
-        // Function to set the selected option in a dropdown
-        function setSelectedOption(selectElement, value) {
-            const options = selectElement.options;
-            for (let i = 0; i < options.length; i++) {
-                if (options[i].value === value) {
-                    options[i].selected = true;
-                    break;
-                }
-            }
-        }
-
-        // When the page loads, populate the dropdowns with stored selections
-        window.onload = function () {
-            const categoriesSelect = document.getElementById('categories');
-            const subcategoriesSelect = document.getElementById('subcategories');
-
-            if (storedCategory) {
-                setSelectedOption(categoriesSelect, storedCategory);
-                showSubcategories(storedCategory);
-            }
-
-            if (storedSubcategory) {
-                setSelectedOption(subcategoriesSelect, storedSubcategory);
-            }
-        };
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
     </script>
-    
 </body>
 
 </html>
