@@ -1,0 +1,429 @@
+{
+    "vocabularies": [
+        {
+            "vocabulary": "resolution",
+            "partOfSpeech": "n.",
+            "chinese": "決心、決定；解決；解析度"
+        },
+        {
+            "vocabulary": "unrealistic",
+            "partOfSpeech": "adj.",
+            "chinese": "不切實際的"
+        },
+        {
+            "vocabulary": "imply",
+            "partOfSpeech": "v.",
+            "chinese": "意味著、表明；暗示"
+        },
+        {
+            "vocabulary": "core",
+            "partOfSpeech": "n.",
+            "chinese": "核心、關鍵；精髓"
+        },
+        {
+            "vocabulary": "adopt",
+            "partOfSpeech": "n.",
+            "chinese": "採用、接納；領養"
+        },
+        {
+            "vocabulary": "motivation",
+            "partOfSpeech": "n.",
+            "chinese": "動機、誘因"
+        },
+        {
+            "vocabulary": "illusion",
+            "partOfSpeech": "n.",
+            "chinese": "錯覺、幻覺、幻想；假象"
+        },
+        {
+            "vocabulary": "masterpiece",
+            "partOfSpeech": "n.",
+            "chinese": "傑作、名著；代表作"
+        },
+        {
+            "vocabulary": "perceive",
+            "partOfSpeech": "v.",
+            "chinese": "注意到、察覺；視為、認為、看作"
+        },
+        {
+            "vocabulary": "visual",
+            "partOfSpeech": "adj.",
+            "chinese": "視覺的、視力的"
+        },
+        {
+            "vocabulary": "visual",
+            "partOfSpeech": "v.",
+            "chinese": "視覺效果、視覺材料"
+        },
+        {
+            "vocabulary": "optical",
+            "partOfSpeech": "adj.",
+            "chinese": "視覺的、光學的"
+        },
+        {
+            "vocabulary": "assumption",
+            "partOfSpeech": "n.",
+            "chinese": "假設、假定、臆斷"
+        },
+        {
+            "vocabulary": "interpret",
+            "partOfSpeech": "v.",
+            "chinese": "解讀、理解、闡釋；口譯"
+        },
+        {
+            "vocabulary": "deceive",
+            "partOfSpeech": "v.",
+            "chinese": "欺騙、朦騙"
+        },
+        {
+            "vocabulary": "dynamic",
+            "partOfSpeech": "adj.",
+            "chinese": "充滿活力的、精力充沛的；不斷發展變化的"
+        },
+        {
+            "vocabulary": "dynamism",
+            "partOfSpeech": "n.",
+            "chinese": "活力"
+        },
+        {
+            "vocabulary": "vibrant",
+            "partOfSpeech": "adj.",
+            "chinese": "充滿生氣的、活躍的：鮮明的"
+        },
+        {
+            "vocabulary": "artistic",
+            "partOfSpeech": "adj.",
+            "chinese": "藝術的；具有藝術天賦的；有藝術鑑賞力的"
+        },
+        {
+            "vocabulary": "heritage",
+            "partOfSpeech": "n.",
+            "chinese": "（具有歷史文化意義的）遺產、傳統、繼承物"
+        },
+        {
+            "vocabulary": "glimpse",
+            "partOfSpeech": "n.",
+            "chinese": "一窺、一瞥：短暫的感受"
+        },
+        {
+            "vocabulary": "ceremony",
+            "partOfSpeech": "n.",
+            "chinese": "儀式：典禮"
+        },
+        {
+            "vocabulary": "structual",
+            "partOfSpeech": "adj.",
+            "chinese": "（建築）結構的、構造上的"
+        },
+        {
+            "vocabulary": "absoluted",
+            "partOfSpeech": "adj.",
+            "chinese": "絕對的、完全的：充足的"
+        },
+        {
+            "vocabulary": "vendor",
+            "partOfSpeech": "n.",
+            "chinese": "攤販、小販，（提供商品或服務的）供應商、銷售者"
+        },
+        {
+            "vocabulary": "electronics",
+            "partOfSpeech": "n.",
+            "chinese": "電子產品、電子設備（恆用複數）：電子學（不可數）"
+        },
+        {
+            "vocabulary": "chaos",
+            "partOfSpeech": "n.",
+            "chinese": "混亂、無序狀態"
+        },
+        {
+            "vocabulary": "embrace",
+            "partOfSpeech": "v.",
+            "chinese": "欣然接受、接受"
+        },
+        {
+            "vocabulary": "striking",
+            "partOfSpeech": "adj.",
+            "chinese": "引人注目的、顯著的"
+        },
+        {
+            "vocabulary": "eye-catching",
+            "partOfSpeech": "adj.",
+            "chinese": "引人注目的、搶眼的"
+        },
+        {
+            "vocabulary": "emerge",
+            "partOfSpeech": "v.",
+            "chinese": "出現、興起：浮現；顯現"
+        },
+        {
+            "vocabulary": "version",
+            "partOfSpeech": "n.",
+            "chinese": "版本；變化形式"
+        },
+        {
+            "vocabulary": "dye",
+            "partOfSpeech": "v.",
+            "chinese": "為…染色"
+        },
+        {
+            "vocabulary": "dye",
+            "partOfSpeech": "n.",
+            "chinese": "染料、染劑"
+        },
+        {
+            "vocabulary": "boom",
+            "partOfSpeech": "n.",
+            "chinese": "激增；繁榮、景氣"
+        },
+        {
+            "vocabulary": "reference",
+            "partOfSpeech": "n.",
+            "chinese": "談到、提及：參考、查閱：引證"
+        },
+        {
+            "vocabulary": "delight",
+            "partOfSpeech": "v.",
+            "chinese": "使感到喜愛、愉悅、滿足（及物）；（以…）為樂、喜歡（不及物）"
+        },
+        {
+            "vocabulary": "reservation",
+            "partOfSpeech": "n.",
+            "chinese": "預約、預定；保留"
+        },
+        {
+            "vocabulary": "inconvenience",
+            "partOfSpeech": "n.",
+            "chinese": "不便、麻煩"
+        },
+        {
+            "vocabulary": "inconvenience",
+            "partOfSpeech": "v.",
+            "chinese": "給…帶來不便、添麻煩"
+        },
+        {
+            "vocabulary": "notify",
+            "partOfSpeech": "v.",
+            "chinese": "通知、告知"
+        },
+        {
+            "vocabulary": "maintenance",
+            "partOfSpeech": "n.",
+            "chinese": "維護、保養；維持"
+        },
+        {
+            "vocabulary": "reslove",
+            "partOfSpeech": "v.",
+            "chinese": "解決；下定決心"
+        },
+        {
+            "vocabulary": "registration",
+            "partOfSpeech": "n.",
+            "chinese": "註冊；登記；掛號"
+        },
+        {
+            "vocabulary": "vegetarian",
+            "partOfSpeech": "n.",
+            "chinese": "素食者"
+        },
+        {
+            "vocabulary": "vegetarian",
+            "partOfSpeech": "adj.",
+            "chinese": "素食的、無肉的"
+        },
+        {
+            "vocabulary": "storage",
+            "partOfSpeech": "n.",
+            "chinese": "儲藏"
+        },
+        {
+            "vocabulary": "depart",
+            "partOfSpeech": "v.",
+            "chinese": "出發、離開、動身"
+        },
+        {
+            "vocabulary": "fetch",
+            "partOfSpeech": "v.",
+            "chinese": "去拿來；去取回"
+        },
+        {
+            "vocabulary": "crucial",
+            "partOfSpeech": "adj.",
+            "chinese": "至關重要的、關鍵性的"
+        },
+        {
+            "vocabulary": "marine",
+            "partOfSpeech": "adj.",
+            "chinese": "海洋的、海生的"
+        },
+        {
+            "vocabulary": "thrive",
+            "partOfSpeech": "v.",
+            "chinese": "茁壯成長；興旺、繁榮"
+        },
+        {
+            "vocabulary": "potential",
+            "partOfSpeech": "n.",
+            "chinese": "潛力、可能性"
+        },
+        {
+            "vocabulary": "potential",
+            "partOfSpeech": "adj.",
+            "chinese": "潛在的、可能的"
+        },
+        {
+            "vocabulary": "nutrient",
+            "partOfSpeech": "n.",
+            "chinese": "營養物、養分"
+        },
+        {
+            "vocabulary": "obtain",
+            "partOfSpeech": "v.",
+            "chinese": "獲得、取得"
+        },
+        {
+            "vocabulary": "alternative",
+            "partOfSpeech": "n.",
+            "chinese": "替代選項、可供選擇的事物"
+        },
+        {
+            "vocabulary": "dietary",
+            "partOfSpeech": "adj.",
+            "chinese": "飲食的、有關飲食的"
+        },
+        {
+            "vocabulary": "application",
+            "partOfSpeech": "n.",
+            "chinese": "應用、用途；應用程式；申請"
+        },
+        {
+            "vocabulary": "emission",
+            "partOfSpeech": "n.",
+            "chinese": "排放物；排放、釋放"
+        },
+        {
+            "vocabulary": "capacity",
+            "partOfSpeech": "n.",
+            "chinese": "能力、才能；容量"
+        },
+        {
+            "vocabulary": "massive",
+            "partOfSpeech": "adj.",
+            "chinese": "巨大的、龐大的"
+        },
+        {
+            "vocabulary": "regulation",
+            "partOfSpeech": "n.",
+            "chinese": "法規、規定；規則；控管"
+        },
+        {
+            "vocabulary": "regulate",
+            "partOfSpeech": "v.",
+            "chinese": "管理、控制"
+        },
+        {
+            "vocabulary": "abuse",
+            "partOfSpeech": "v.",
+            "chinese": "濫用、虐待"
+        },
+        {
+            "vocabulary": "commit",
+            "partOfSpeech": "v.",
+            "chinese": "犯(罪)、做(錯事)"
+        },
+        {
+            "vocabulary": "embarrassing",
+            "partOfSpeech": "adj.",
+            "chinese": "令人尷尬、難堪"
+        },
+        {
+            "vocabulary": "digital",
+            "partOfSpeech": "adj.",
+            "chinese": "數位的、數字的"
+        },
+        {
+            "vocabulary": "concerning",
+            "partOfSpeech": "prep.",
+            "chinese": "關於"
+        },
+        {
+            "vocabulary": "concern",
+            "partOfSpeech": "v.",
+            "chinese": "關於、涉及"
+        },
+        {
+            "vocabulary": "submit",
+            "partOfSpeech": "v.",
+            "chinese": "提交、遞呈"
+        },
+        {
+            "vocabulary": "approval",
+            "partOfSpeech": "n.",
+            "chinese": "認可、核准；同意、贊同"
+        },
+        {
+            "vocabulary": "persuasive",
+            "partOfSpeech": "adj.",
+            "chinese": "具有說服力的"
+        },
+        {
+            "vocabulary": "comprehend",
+            "partOfSpeech": "v.",
+            "chinese": "理解、領悟"
+        },
+        {
+            "vocabulary": "enforcement",
+            "partOfSpeech": "n.",
+            "chinese": "(強制)執行、實施"
+        },
+        {
+            "vocabulary": "corporation",
+            "partOfSpeech": "n.",
+            "chinese": "大型企業、大公司"
+        },
+        {
+            "vocabulary": "fierce",
+            "partOfSpeech": "adj.",
+            "chinese": "激烈的；強烈的；兇猛的"
+        },
+        {
+            "vocabulary": "universally",
+            "partOfSpeech": "adv.",
+            "chinese": "普遍、共同、全體"
+        },
+        {
+            "vocabulary": "harmony",
+            "partOfSpeech": "n.",
+            "chinese": "和諧、協調；和睦、融洽"
+        },
+        {
+            "vocabulary": "outsider",
+            "partOfSpeech": "n.",
+            "chinese": "局外人；外來者"
+        },
+        {
+            "vocabulary": "overwhelming",
+            "partOfSpeech": "adj.",
+            "chinese": "令人難以承受的、不知所措的、壓倒性的"
+        },
+        {
+            "vocabulary": "isolation",
+            "partOfSpeech": "n.",
+            "chinese": "孤獨；孤立；隔離"
+        },
+        {
+            "vocabulary": "integrate",
+            "partOfSpeech": "n.",
+            "chinese": "(使)融入、融合；使合併"
+        },
+        {
+            "vocabulary": "overcome",
+            "partOfSpeech": "v.",
+            "chinese": "克服；戰勝"
+        },
+        {
+            "vocabulary": "barrier",
+            "partOfSpeech": "n.",
+            "chinese": "障礙、阻礙；阻隔；屏障"
+        }
+    ]
+}

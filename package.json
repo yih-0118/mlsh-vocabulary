@@ -1,0 +1,49 @@
+{
+  "name": "mlsh-vocabulary-react",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://yih-0118/mlsh-vocabulary",
+  "dependencies": {
+    "@headlessui/react": "^2.2.0",
+    "@radix-ui/react-icons": "^1.3.2",
+    "cra-template": "1.2.0",
+    "gh-pages": "^6.2.0",
+    "lucide-react": "^0.469.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.4.0",
+    "react-scripts": "5.0.1",
+    "react-select": "^5.9.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17"
+  }
+}

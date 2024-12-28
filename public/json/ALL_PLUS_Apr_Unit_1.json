@@ -1,0 +1,54 @@
+{
+    "vocabularies": [
+        {
+            "vocabulary": "trigger",
+            "partOfSpeech": "v.",
+            "chinese": " 引發、促使"
+        },
+        {
+            "vocabulary": "trigger",
+            "partOfSpeech": "n.",
+            "chinese": " 誘因；扳機"
+        },
+        {
+            "vocabulary": "cluster",
+            "partOfSpeech": "v.",
+            "chinese": " 聚集、群聚（可作及物或不及物用）"
+        },
+        {
+            "vocabulary": "cluster",
+            "partOfSpeech": "n.",
+            "chinese": " （聚集的）一叢、一束、一群"
+        },
+        {
+            "vocabulary": "allergy",
+            "partOfSpeech": "n.",
+            "chinese": " 過敏反應、過敏症"
+        },
+        {
+            "vocabulary": "symptom",
+            "partOfSpeech": "n.",
+            "chinese": " （疾病的）症狀；徵兆"
+        },
+        {
+            "vocabulary": "psychological",
+            "partOfSpeech": "adj.",
+            "chinese": " 心理的、精神的；心理學的"
+        },
+        {
+            "vocabulary": "severe",
+            "partOfSpeech": "adj.",
+            "chinese": " 嚴重的、極惡劣的；嚴厲的"
+        },
+        {
+            "vocabulary": "fabric",
+            "partOfSpeech": "n.",
+            "chinese": " 布料、織品；（建築或社會體系的）結構"
+        },
+        {
+            "vocabulary": "measure",
+            "partOfSpeech": "n.",
+            "chinese": " 措施、辦法"
+        }
+    ]
+}

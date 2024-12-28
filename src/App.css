@@ -1,0 +1,19 @@
+.fadeInCard {
+  animation: fadeIn 0.4s ease;
+}
+
+.drawerTransition {
+  transition: transform 0.4s ease;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+body {
+  -moz-user-select:none; 
+  -webkit-user-select: none; 
+  -ms-user-select: none; 
+  user-select: none; 
+}

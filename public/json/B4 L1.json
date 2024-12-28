@@ -1,0 +1,274 @@
+{
+    "vocabularies": [
+        {
+            "vocabulary": "isolated",
+            "partOfSpeech": "adj.",
+            "chinese": "偏遠的"
+        },
+        {
+            "vocabulary": "isolated",
+            "partOfSpeech": "adj.",
+            "chinese": "孤獨的；孤立的"
+        },
+        {
+            "vocabulary": "isolate",
+            "partOfSpeech": "vt.",
+            "chinese": "隔離；孤立"
+        },
+        {
+            "vocabulary": "isolation",
+            "partOfSpeech": "n.",
+            "chinese": "隔離"
+        },
+        {
+            "vocabulary": "isolation",
+            "partOfSpeech": "n.",
+            "chinese": "孤立；孤獨"
+        },
+        {
+            "vocabulary": "primarily",
+            "partOfSpeech": "adv.",
+            "chinese": "主要地"
+        },
+        {
+            "vocabulary": "primary",
+            "partOfSpeech": "adj.",
+            "chinese": "主要的"
+        },
+        {
+            "vocabulary": "justice",
+            "partOfSpeech": "n.",
+            "chinese": "正義；公平"
+        },
+        {
+            "vocabulary": "justice",
+            "partOfSpeech": "n.",
+            "chinese": "公正"
+        },
+        {
+            "vocabulary": "injustice",
+            "partOfSpeech": "n.",
+            "chinese": "不公平"
+        },
+        {
+            "vocabulary": "accuse",
+            "partOfSpeech": "vt.",
+            "chinese": "指控"
+        },
+        {
+            "vocabulary": "guilt",
+            "partOfSpeech": "n.",
+            "chinese": "犯罪；罪行"
+        },
+        {
+            "vocabulary": "guilt",
+            "partOfSpeech": "n.",
+            "chinese": "內疚"
+        },
+        {
+            "vocabulary": "guilty",
+            "partOfSpeech": "adj.",
+            "chinese": "有罪的"
+        },
+        {
+            "vocabulary": "suspect",
+            "partOfSpeech": "n.",
+            "chinese": "嫌疑犯"
+        },
+        {
+            "vocabulary": "suspect",
+            "partOfSpeech": "vt.",
+            "chinese": "懷疑；猜想"
+        },
+        {
+            "vocabulary": "suspect",
+            "partOfSpeech": "vt.",
+            "chinese": "懷疑（某人有罪）"
+        },
+        {
+            "vocabulary": "insist",
+            "partOfSpeech": "vt. vi.",
+            "chinese": "堅持"
+        },
+        {
+            "vocabulary": "opposite",
+            "partOfSpeech": "prep.",
+            "chinese": "在......的對面"
+        },
+        {
+            "vocabulary": "opposite",
+            "partOfSpeech": "adj.",
+            "chinese": "對面的；另一邊的"
+        },
+        {
+            "vocabulary": "opposite",
+            "partOfSpeech": "adj.",
+            "chinese": "相反的"
+        },
+        {
+            "vocabulary": "identical",
+            "partOfSpeech": "adj.",
+            "chinese": "完全相同的；極其相似的"
+        },
+        {
+            "vocabulary": "ultimately",
+            "partOfSpeech": "adv.",
+            "chinese": "最終；最後"
+        },
+        {
+            "vocabulary": "ultimate",
+            "partOfSpeech": "adj.",
+            "chinese": "最後的"
+        },
+        {
+            "vocabulary": "glory",
+            "partOfSpeech": "n.",
+            "chinese": "榮耀"
+        },
+        {
+            "vocabulary": "glorious",
+            "partOfSpeech": "adj.",
+            "chinese": "壯麗的"
+        },
+        {
+            "vocabulary": "witness",
+            "partOfSpeech": "vt.",
+            "chinese": "目擊；親眼見證"
+        },
+        {
+            "vocabulary": "terrifying",
+            "partOfSpeech": "adj.",
+            "chinese": "可怕的"
+        },
+        {
+            "vocabulary": "terrify",
+            "partOfSpeech": "vt.",
+            "chinese": "使恐懼"
+        },
+        {
+            "vocabulary": "terrified",
+            "partOfSpeech": "adj.",
+            "chinese": "極度恐懼的"
+        },
+        {
+            "vocabulary": "cherish",
+            "partOfSpeech": "vt.",
+            "chinese": "珍愛"
+        },
+        {
+            "vocabulary": "cherish",
+            "partOfSpeech": "vt.",
+            "chinese": "懷有；珍惜（記憶等）"
+        },
+        {
+            "vocabulary": "royal",
+            "partOfSpeech": "adj.",
+            "chinese": "皇家的；王室的"
+        },
+        {
+            "vocabulary": "royalty",
+            "partOfSpeech": "n.",
+            "chinese": "王室成員"
+        },
+        {
+            "vocabulary": "status",
+            "partOfSpeech": "n.",
+            "chinese": "地位；身份"
+        },
+        {
+            "vocabulary": "palace",
+            "partOfSpeech": "n.",
+            "chinese": "宮殿"
+        },
+        {
+            "vocabulary": "jail",
+            "partOfSpeech": "n.",
+            "chinese": "監獄"
+        },
+        {
+            "vocabulary": "pace",
+            "partOfSpeech": "vt. vi.",
+            "chinese": "來回踱步"
+        },
+        {
+            "vocabulary": "pace",
+            "partOfSpeech": "n.",
+            "chinese": "速度；步速"
+        },
+        {
+            "vocabulary": "clue",
+            "partOfSpeech": "n.",
+            "chinese": "提示；線索"
+        },
+        {
+            "vocabulary": "anxiety",
+            "partOfSpeech": "n.",
+            "chinese": "焦慮；憂慮"
+        },
+        {
+            "vocabulary": "anxious",
+            "partOfSpeech": "adj.",
+            "chinese": "焦慮的"
+        },
+        {
+            "vocabulary": "instruct",
+            "partOfSpeech": "vt.",
+            "chinese": "提示；命令"
+        },
+        {
+            "vocabulary": "instruction",
+            "partOfSpeech": "n.",
+            "chinese": "指示；命令"
+        },
+        {
+            "vocabulary": "instructor",
+            "partOfSpeech": "n.",
+            "chinese": "教練"
+        },
+        {
+            "vocabulary": "subtle",
+            "partOfSpeech": "adj.",
+            "chinese": "不易察覺的；淡淡的"
+        },
+        {
+            "vocabulary": "lean",
+            "partOfSpeech": "vi.",
+            "chinese": "前俯；傾斜"
+        },
+        {
+            "vocabulary": "lean",
+            "partOfSpeech": "vi.",
+            "chinese": "倚靠"
+        },
+        {
+            "vocabulary": "once upon time",
+            "partOfSpeech":"" ,
+            "chinese": "從前；很久以前"
+        },
+        {
+            "vocabulary": "rule (...) with an iron fist",
+            "partOfSpeech":"" ,
+            "chinese": "以鐵碗手段治理"
+        },
+        {
+            "vocabulary": "side by side",
+            "partOfSpeech":"" ,
+            "chinese": "並列地；並肩地"
+        },
+        {
+            "vocabulary": "by no means",
+            "partOfSpeech":"" ,
+            "chinese": "絕非；一點也不"
+        },
+        {
+            "vocabulary": "tear (...) apart",
+            "partOfSpeech":"" ,
+            "chinese": "（把.......）撕裂"
+        },
+        {
+            "vocabulary": "none but",
+            "partOfSpeech":"" ,
+            "chinese": "僅有"
+        }
+    ]
+}
