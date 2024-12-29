@@ -63,6 +63,14 @@ export const categoriesMapping = {
         { label: 'Lesson 5', link: '../json/B5 L5.json'},
         { label: 'Lesson 6', link: '../json/B5 L6.json'},
     ],
+    '學測 7000 單': [
+        { label: 'Level 1', link: '../json/Level 1.json'},
+        { label: 'Level 2', link: '../json/Level 2.json'},
+        { label: 'Level 3', link: '../json/Level 3.json'},
+        { label: 'Level 4', link: '../json/Level 4.json'},
+        { label: 'Level 5', link: '../json/Level 5.json'},
+        { label: 'Level 6', link: '../json/Level 6.json'},
+    ],
     '單字書 Level 2': [
         { label: 'Unit 1', link: '../json/vocabulary(L2 Unit1).json'},
         { label: 'Unit 2', link: '../json/vocabulary(L2 Unit2).json'},
@@ -145,14 +153,6 @@ export const categoriesMapping = {
         { label: 'Unit 23', link: '../json/vocabulary(L5 Unit23).json'},
         { label: 'Unit 24', link: '../json/vocabulary(L5 Unit24).json'},
         { label: 'Unit 25', link: '../json/vocabulary(L5 Unit25).json'},
-    ],
-    '學測7000單': [
-        { label: 'Level 1', link: '../json/Level 1.json'},
-        { label: 'Level 2', link: '../json/Level 2.json'},
-        { label: 'Level 3', link: '../json/Level 3.json'},
-        { label: 'Level 4', link: '../json/Level 4.json'},
-        { label: 'Level 5', link: '../json/Level 5.json'},
-        { label: 'Level 6', link: '../json/Level 6.json'},
     ],
     ALL_PLUS_Mar: [
       { label: 'CNN News', link: '../json/ALL_PLUS_Mar_CNN_News.json' },

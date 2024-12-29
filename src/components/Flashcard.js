@@ -7,7 +7,16 @@ const Flashcard = ({
     showChinese,
     fadeKey,
     darkMode,
+    direction, 
 }) => {
+    
+    let animationClass = '';
+    if (direction === 'next') {
+        animationClass = 'slide-in-next';
+    } else if (direction === 'prev') {
+        animationClass = 'slide-in-prev';
+    }
+
     return (
         <div
             key={fadeKey}
@@ -16,6 +25,7 @@ const Flashcard = ({
         rounded-xl shadow-lg p-8 mx-4 mb-4
         transition-all duration-300 ease-in-out
         animate-fadeIn opacity-100
+        ${animationClass}  
       `}
         >
             <div className="flex flex-col items-center space-y-4">
@@ -33,10 +43,10 @@ const Flashcard = ({
                 </p>
                 <div
                     className={`
-                    overflow-hidden
-                    transition-all duration-300
-                    ${showChinese ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}
-                `}
+            overflow-hidden
+            transition-all duration-300
+            ${showChinese ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}
+          `}
                 >
                     <p
                         className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-700'
