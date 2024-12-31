@@ -34,3 +34,4 @@ build/
 *.old
 
 deploy.sh
+/public/flag.txt

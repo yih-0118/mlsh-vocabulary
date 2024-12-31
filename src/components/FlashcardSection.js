@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import IconButton from './IconButton';
 import Flashcard from './Flashcard';
 import { ChevronLeft, ChevronRight, Eye, EyeOff, Volume2 } from 'lucide-react';
@@ -16,30 +16,46 @@ const FlashcardSection = ({
   startQuiz,
   quizType,
   setQuizType,
-  sortedVocabularies,
 }) => {
+  const [isPlaying, setIsPlaying] = useState(false); // 控制音頻播放狀態
+  const audioRef = useRef(null); // 用來追踪音頻實例
+
   const handleRead = (word) => {
-    if (!word) return;
+    if (!word || isPlaying) return; // 如果正在播放音訊，則不重複
+    setIsPlaying(true);
+
     const encoded = encodeURIComponent(word);
     const audio = new Audio(
       `https://dict.youdao.com/dictvoice?type=1&audio=${encoded}`
     );
+    audioRef.current = audio;
+
     audio.play();
+    audio.addEventListener('ended', () => setIsPlaying(false)); // 播放完成後重設狀態
+  };
+
+  const cancelRead = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0; // 重置播放位置
+      setIsPlaying(false);
+    }
   };
 
   const handleNext = () => {
+    cancelRead(); // 每次切換卡片時取消音頻播放
     setDirection('next');
     setCurrentIndex((prev) => (prev + 1) % vocabularies.length);
   };
 
   const handlePrev = () => {
+    cancelRead(); // 每次切換卡片時取消音頻播放
     setDirection('prev');
     setCurrentIndex((prev) => (prev - 1 + vocabularies.length) % vocabularies.length);
   };
 
   return (
-    <>
-      {/* 如果有資料才顯示 Flashcard */}
+    <div className="relative min-h-screen pb-24">
       {vocabularies.length > 0 && currentIndex < vocabularies.length && (
         <Flashcard
           vocabulary={vocabularies[currentIndex].vocabulary}
@@ -52,23 +68,23 @@ const FlashcardSection = ({
         />
       )}
 
-      {/* 顯示測驗相關按鈕（題型切換 + 開始測驗） */}
       {vocabularies.length > 0 && (
-        <div className="my-6 space-y-4 transition-all duration-500">
-          <div className="flex space-x-2">
+        <div className="mx-4 my-6 space-y-4">
+          <div className="flex gap-3">
             <button
               className={`
-                flex-1 py-2 px-4 rounded-lg border-2 transition-transform duration-300 hover:scale-100
-                ${
-                  quizType === 'enToZh'
-                    ? darkMode
-                      ? 'border-blue-400 bg-gray-700 text-gray-100'
-                      : 'border-blue-600 bg-blue-100 text-blue-900'
-                    : darkMode
-                      ? 'border-transparent bg-gray-700 text-gray-200'
-                      : 'border-transparent bg-blue-50 text-blue-900'
+      flex-1 py-3 px-4 rounded-2xl
+      transition-colors duration-300
+      backdrop-blur-lg
+      ${quizType === 'enToZh'
+                  ? darkMode
+                    ? 'bg-blue-500/20 border-2 border-blue-400 text-blue-200'
+                    : 'bg-blue-500/10 border-2 border-blue-500 text-blue-700'
+                  : darkMode
+                    ? 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50'
+                    : 'bg-gray-100/50 text-gray-700 hover:bg-gray-200/50'
                 }
-              `}
+    `}
               onClick={() => setQuizType('enToZh')}
             >
               看英文選中文
@@ -76,29 +92,33 @@ const FlashcardSection = ({
 
             <button
               className={`
-                flex-1 py-2 px-4 rounded-lg border-2 transition-transform duration-300 hover:scale-100
-                ${
-                  quizType === 'zhToEn'
-                    ? darkMode
-                      ? 'border-blue-400 bg-gray-700 text-gray-100'
-                      : 'border-blue-600 bg-blue-100 text-blue-900'
-                    : darkMode
-                      ? 'border-transparent bg-gray-700 text-gray-200'
-                      : 'border-transparent bg-blue-50 text-blue-900'
+      flex-1 py-3 px-4 rounded-2xl
+      transition-colors duration-300
+      backdrop-blur-lg
+      ${quizType === 'zhToEn'
+                  ? darkMode
+                    ? 'bg-blue-500/20 border-2 border-blue-400 text-blue-200'
+                    : 'bg-blue-500/10 border-2 border-blue-500 text-blue-700'
+                  : darkMode
+                    ? 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50'
+                    : 'bg-gray-100/50 text-gray-700 hover:bg-gray-200/50'
                 }
-              `}
+    `}
               onClick={() => setQuizType('zhToEn')}
             >
               看中文選英文
             </button>
           </div>
+
+
           <button
             className={`
-              w-full py-2 px-4 rounded-lg font-bold transition-transform duration-300 hover:scale-100
-              ${
-                darkMode
-                  ? 'bg-red-500 hover:bg-red-500 text-white'
-                  : 'bg-red-300 hover:bg-red-400 text-red-900'
+              w-full py-3 px-4 rounded-2xl font-medium
+              transition-all duration-300
+              backdrop-blur-lg
+              ${darkMode
+                ? 'bg-red-500/20 text-red-200 border-2 border-red-400'
+                : 'bg-red-500/10 text-red-700 border-2 border-red-500'
               }
             `}
             onClick={startQuiz}
@@ -108,21 +128,20 @@ const FlashcardSection = ({
         </div>
       )}
 
-      {/* Flashcard 模式底部操作列 (只有在有資料且非測驗模式時顯示) */}
       {vocabularies.length > 0 && (
         <div
           className={`
-            fixed bottom-0 w-full border-t z-10
+            fixed bottom-0 left-0 right-0
+            backdrop-blur-xl
             transition-colors duration-500
-            ${
-              darkMode
-                ? 'bg-gradient-to-r from-gray-800 to-gray-700 border-gray-700'
-                : 'bg-gradient-to-r from-white to-gray-100 border-gray-200'
+            ${darkMode
+              ? 'bg-gray-900/70'
+              : 'bg-white/70'
             }
           `}
         >
-          <div className="max-w-xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div className="flex space-x-3">
+          <div className="max-w-xl mx-auto px-6 py-6 flex justify-between items-center">
+            <div className="flex gap-4">
               <IconButton
                 icon={showChinese ? EyeOff : Eye}
                 onClick={() => setShowChinese(!showChinese)}
@@ -130,13 +149,13 @@ const FlashcardSection = ({
                 darkMode={darkMode}
               />
               <IconButton
-                icon={Volume2}
-                onClick={() => handleRead(vocabularies[currentIndex]?.vocabulary)}
-                label="Play Audio"
+                icon={isPlaying ? EyeOff : Volume2} // 根據播放狀態變更圖示
+                onClick={isPlaying ? cancelRead : () => handleRead(vocabularies[currentIndex]?.vocabulary)}
+                label={isPlaying ? "Stop Audio" : "Play Audio"} // 提示動作
                 darkMode={darkMode}
               />
             </div>
-            <div className="flex space-x-3">
+            <div className="flex gap-4">
               <IconButton
                 icon={ChevronLeft}
                 onClick={handlePrev}
@@ -153,7 +172,7 @@ const FlashcardSection = ({
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

@@ -46,18 +46,20 @@ const Header = ({ darkMode, setDarkMode, setShowDrawer }) => {
           <div className="flex items-center gap-2">
             <Book
               className={`
-                  w-6 h-6
-                  ${darkMode ? 'text-blue-400' : 'text-blue-500'}
-                `}
+      w-6 h-6
+      ${darkMode ? 'text-blue-400' : 'text-blue-500'}
+    `}
             />
-            <h1
-              className={`
-                  text-xl font-semibold
-                  ${darkMode ? 'text-white' : 'text-gray-900'}
-                `}
-            >
-              明倫單字卡
-            </h1>
+            <a href="/" className="no-underline">
+              <h1
+                className={`
+        text-xl font-semibold
+        ${darkMode ? 'text-white' : 'text-gray-900'}
+      `}
+              >
+                明倫單字卡
+              </h1>
+            </a>
           </div>
 
           {/* Header 右側功能按鈕 */}

@@ -250,7 +250,6 @@ const App = () => {
       setQuizQuestionIndex(nextIndex);
       generateQuestion();
     } else {
-      alert(`測驗結束！總得分: ${quizScore}/${QUIZ_LENGTH}`);
       resetQuiz();
     }
   };
@@ -278,6 +277,37 @@ const App = () => {
 
     return () => clearInterval(timer);
   }, [isQuizMode, quizQuestion, quizAnswered]);
+
+  // ----------------- 使用人數統計 -----------------
+  useEffect(() => {
+    const fetchLocationAndSubmit = async () => {
+      try {
+        const response = await fetch('https://ipapi.co/json/');
+        const locationData = await response.json();
+
+        const { city, region, country_name: country } = locationData;
+        const location = `${city}, ${region}, ${country}`;
+
+        await fetch(
+          'https://docs.google.com/forms/d/e/1FAIpQLSeCvxN309s_Rrm4nGKaVdP6s9aDmIWoCF-mK49_5nHBATcRqQ/formResponse',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+              'entry.271493781': '到',
+              'entry.819813079': location,
+            }),
+          }
+        );
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchLocationAndSubmit();
+  }, []); 
 
   // ----------------- JSX -----------------
   return (

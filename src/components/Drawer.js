@@ -1,6 +1,5 @@
-import React from 'react';
-import { X, Eye, EyeOff, Star, StarOff } from 'lucide-react';
-import IconButton from './IconButton';
+import React, { useState } from 'react';
+import { X, Eye, EyeOff, Star, StarOff, BookOpen, Search, SortAsc } from 'lucide-react';
 
 const Drawer = ({
   showDrawer,
@@ -22,206 +21,268 @@ const Drawer = ({
   setCurrentIndex,
   setFadeKey,
 }) => {
+  const [activeTab, setActiveTab] = useState('all');
+
   return (
     <>
-      {/* 半透明遮罩 */}
       <div
         className={`
-          fixed inset-0 bg-black bg-opacity-50 z-20
+          fixed inset-0 bg-black/50 backdrop-blur-sm z-20
           transition-opacity duration-300
           ${showDrawer ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
         `}
         onClick={() => setShowDrawer(false)}
       />
-      {/* Drawer 本體 */}
+      
       <div
         className={`
-          fixed inset-y-0 right-0 w-full max-w-sm shadow-xl z-30
-          transform transition-transform duration-300
+          fixed inset-y-0 right-0 w-full max-w-sm z-30
+          transform transition-all duration-300 ease-in-out
           flex flex-col
           ${showDrawer ? 'translate-x-0' : 'translate-x-full'}
-          ${darkMode ? 'bg-gray-800' : 'bg-white'}
+          ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}
         `}
       >
-        {/* Drawer Header */}
-        <div
-          className={`
-            p-4 border-b flex justify-between items-center
-            transition-colors duration-500
-            ${darkMode ? 'border-gray-700' : 'border-gray-200'}
-          `}
-        >
-          <h2
-            className={`text-lg font-semibold ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}
-          >
-            單字列表
-          </h2>
-          <IconButton
-            icon={X}
-            onClick={() => setShowDrawer(false)}
-            label="Close Drawer"
-            darkMode={darkMode}
-          />
+
+        <div className="relative h-16 overflow-hidden">
+          <div className={`absolute inset-0 ${darkMode ? 'bg-blue-900' : 'bg-blue-500'}`}>
+            <div className="absolute -bottom-8 left-0 right-0 h-16">
+            </div>
+          </div>
+          <div className="relative flex justify-between items-center px-4 h-full">
+            <h2 className="text-xl font-bold text-white flex items-center gap-2">
+              <BookOpen className="w-6 h-6" />
+              單字列表
+            </h2>
+            <button
+              onClick={() => setShowDrawer(false)}
+              className="p-2 rounded-full hover:bg-white/20 transition-colors"
+            >
+              <X className="w-6 h-6 text-white" />
+            </button>
+          </div>
         </div>
 
-        {/* Drawer 功能列 */}
-        <div
-          className={`
-            p-4 border-b flex flex-col gap-2
-            ${darkMode ? 'border-gray-700' : 'border-gray-200'}
-          `}
-        >
-          {/* 搜尋列 */}
-          <div className="flex items-center space-x-2">
+        <div className="px-4 py-3">
+          <div className={`
+            relative rounded-xl overflow-hidden
+            ${darkMode ? 'bg-gray-800' : 'bg-white'}
+            shadow-lg
+          `}>
+            <Search className={`
+              absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5
+              ${darkMode ? 'text-gray-400' : 'text-gray-500'}
+            `} />
             <input
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="搜尋英文或中文"
+              placeholder="搜尋..."
               className={`
-                flex-1 py-2 px-3 rounded-lg focus:outline-none
-                ${darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'}
+                w-full py-3 pl-10 pr-4
+                ${darkMode ? 'bg-gray-800 text-gray-200' : 'bg-white text-gray-800'}
+                focus:outline-none
               `}
             />
           </div>
+        </div>
 
-          {/* 按鈕群 */}
-          <div className="flex gap-2">
-            {/* 切換中英顯示 */}
-            <button
-              onClick={() => setDrawerShowChinese(!drawerShowChinese)}
-              className={`
-                flex-1 py-2 px-4 rounded-lg flex items-center justify-center space-x-2
-                transition-transform duration-300 hover:scale-100
-                ${darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'}
-              `}
-            >
-              {drawerShowChinese ? (
-                <EyeOff className="w-5 h-5" />
-              ) : (
-                <Eye className="w-5 h-5" />
-              )}
-              <span>{drawerShowChinese ? '隱藏中文' : '顯示中文'}</span>
-            </button>
-
-            {/* 切換排序 */}
-            <button
-              onClick={() => setSortAZ(!sortAZ)}
-              className={`
-                flex-1 py-2 px-4 rounded-lg
-                transition-transform duration-300 hover:scale-100
-                ${darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'}
-              `}
-            >
-              {sortAZ ? '原順序' : 'A~Z排序'}
-            </button>
-          </div>
-
-          {/* 切換我的最愛 */}
+        <div className="px-4 py-2 flex gap-2">
           <button
-            onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}
+            onClick={() => setDrawerShowChinese(!drawerShowChinese)}
             className={`
-              w-full py-2 px-4 rounded-lg flex items-center justify-center space-x-2
-              transition-transform duration-300 hover:scale-100
-              ${darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'}
+              flex-1 py-2 px-3 rounded-xl
+              flex items-center justify-center gap-2
+              transition-all duration-300
+              ${darkMode 
+                ? 'bg-gray-800 hover:bg-gray-700 text-gray-200' 
+                : 'bg-white hover:bg-gray-100 text-gray-800'}
+              shadow-md hover:shadow-lg
             `}
           >
-            {showOnlyFavorites ? (
-              <>
-                <Star className="w-5 h-5" />
-                <span>顯示全部單字</span>
-              </>
-            ) : (
-              <>
-                <StarOff className="w-5 h-5" />
-                <span>只顯示我的最愛</span>
-              </>
-            )}
+            {drawerShowChinese ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+            <span className="text-sm">{drawerShowChinese ? '隱藏中文' : '顯示中文'}</span>
+          </button>
+
+          <button
+            onClick={() => setSortAZ(!sortAZ)}
+            className={`
+              flex-1 py-2 px-3 rounded-xl
+              flex items-center justify-center gap-2
+              transition-all duration-300
+              ${darkMode 
+                ? 'bg-gray-800 hover:bg-gray-700 text-gray-200' 
+                : 'bg-white hover:bg-gray-100 text-gray-800'}
+              shadow-md hover:shadow-lg
+            `}
+          >
+            <SortAsc className="w-4 h-4" />
+            <span className="text-sm">{sortAZ ? '原順序' : 'A-Z'}</span>
           </button>
         </div>
 
-        {/* Drawer 內文 (單字清單) */}
-        <div className="p-4 flex-1 overflow-y-auto">
-          {filteredVocabularies.map((item, idx) => {
-            const isFavorite = favorites.includes(item.vocabulary);
-            // 判斷「目前正在看的卡片」
-            const isCurrent =
-              vocabularies[currentIndex] &&
-              item.vocabulary === vocabularies[currentIndex].vocabulary;
+        {/* 切換標籤 */}
+        <div className="px-4 py-2 flex gap-2">
+          <button
+            onClick={() => {
+              setActiveTab('all');
+              setShowOnlyFavorites(false);
+            }}
+            className={`
+              flex-1 py-2 rounded-xl text-sm font-medium
+              transition-all duration-300
+              ${activeTab === 'all'
+                ? darkMode
+                  ? 'bg-blue-900 text-white'
+                  : 'bg-blue-500 text-white'
+                : darkMode
+                  ? 'bg-gray-800 text-gray-300'
+                  : 'bg-white text-gray-600'
+              }
+            `}
+          >
+            全部單字
+          </button>
+          <button
+            onClick={() => {
+              setActiveTab('favorites');
+              setShowOnlyFavorites(true);
+            }}
+            className={`
+              flex-1 py-2 rounded-xl text-sm font-medium
+              transition-all duration-300
+              ${activeTab === 'favorites'
+                ? darkMode
+                  ? 'bg-blue-900 text-white'
+                  : 'bg-blue-500 text-white'
+                : darkMode
+                  ? 'bg-gray-800 text-gray-300'
+                  : 'bg-white text-gray-600'
+              }
+            `}
+          >
+            我的最愛
+          </button>
+        </div>
 
-            return (
-              <div
-                key={idx}
-                onClick={() => {
-                  // 找到該單字在 vocabularies 陣列中的實際索引
-                  const realIndex = vocabularies.findIndex(
-                    (v) => v.vocabulary === item.vocabulary
-                  );
-                  if (realIndex !== -1) {
-                    setCurrentIndex(realIndex);
-                    setFadeKey((prev) => prev + 1);
-                  }
-                  setShowDrawer(false);
-                }}
-                className={`
-                  p-3 mb-2 rounded-lg cursor-pointer transition-colors duration-300 flex justify-between items-center
-                  ${
-                    darkMode
-                      ? isCurrent
-                        ? 'bg-blue-600'
-                        : 'hover:bg-gray-700 bg-transparent'
-                      : isCurrent
-                        ? 'bg-blue-100'
-                        : 'hover:bg-gray-100 bg-transparent'
-                  }
-                `}
-              >
-                <div>
-                  <div
-                    className={`font-medium ${
-                      darkMode ? 'text-gray-200' : 'text-gray-900'
-                    }`}
-                  >
-                    {idx + 1}. {item.vocabulary}{' '}
-                    <span
-                      className={`italic ${
-                        darkMode ? 'text-gray-400' : 'text-gray-500'
-                      }`}
+        {/* 單字列表 */}
+        <div className="flex-1 overflow-y-auto px-4 py-2">
+          <div className="space-y-2">
+            {filteredVocabularies.map((item, idx) => {
+              const isFavorite = favorites.includes(item.vocabulary);
+              const isCurrent = vocabularies[currentIndex]?.vocabulary === item.vocabulary;
+
+              return (
+                <div
+                  key={idx}
+                  onClick={() => {
+                    const realIndex = vocabularies.findIndex(
+                      (v) => v.vocabulary === item.vocabulary
+                    );
+                    if (realIndex !== -1) {
+                      setCurrentIndex(realIndex);
+                      setFadeKey((prev) => prev + 1);
+                      setShowDrawer(false);
+                    }
+                  }}
+                  className={`
+                    relative rounded-xl p-4
+                    transition-all duration-300 ease-in-out
+                    cursor-pointer group
+                    ${isCurrent
+                      ? darkMode
+                        ? 'bg-blue-900'
+                        : 'bg-blue-500 text-white'
+                      : darkMode
+                        ? 'bg-gray-800 hover:bg-gray-700'
+                        : 'bg-white hover:bg-gray-100'
+                    }
+                    ${darkMode ? 'shadow-lg shadow-black/10' : 'shadow-md'}
+                  `}
+                >
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <div className={`
+                        text-lg font-medium
+                        ${isCurrent
+                          ? 'text-white'
+                          : darkMode
+                            ? 'text-gray-200'
+                            : 'text-gray-800'
+                        }
+                      `}>
+                        {item.vocabulary}
+                      </div>
+                      <div className={`
+                        text-sm italic
+                        ${isCurrent
+                          ? 'text-blue-100'
+                          : darkMode
+                            ? 'text-gray-400'
+                            : 'text-gray-500'
+                        }
+                      `}>
+                        {item.partOfSpeech}
+                      </div>
+                    </div>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleFavorite(item);
+                      }}
+                      className={`
+                        p-2 rounded-full
+                        transition-all duration-300
+                        ${darkMode ? 'hover:bg-gray-600' : 'hover:bg-gray-200'}
+                        ${isCurrent ? 'hover:bg-blue-700' : ''}
+                      `}
                     >
-                      {item.partOfSpeech}
-                    </span>
+                      {isFavorite ? (
+                        <Star className="w-5 h-5 text-yellow-400" />
+                      ) : (
+                        <StarOff className={`
+                          w-5 h-5
+                          ${isCurrent
+                            ? 'text-white'
+                            : darkMode
+                              ? 'text-gray-400'
+                              : 'text-gray-400'
+                          }
+                        `} />
+                      )}
+                    </button>
                   </div>
+                  
                   {drawerShowChinese && (
-                    <div
-                      className={`mt-1 ${
-                        darkMode ? 'text-gray-400' : 'text-gray-600'
-                      }`}
-                    >
+                    <div className={`
+                      mt-2 text-sm
+                      ${isCurrent
+                        ? 'text-blue-100'
+                        : darkMode
+                          ? 'text-gray-400'
+                          : 'text-gray-600'
+                      }
+                    `}>
                       {item.chinese}
                     </div>
                   )}
+                  
+                  {/* <div className={`
+                    absolute -left-1 top-1/2 -translate-y-1/2
+                    text-sm font-medium px-2 py-1 rounded-md
+                    transition-all duration-300
+                    ${darkMode
+                      ? 'bg-gray-700 text-gray-300'
+                      : 'bg-gray-200 text-gray-600'
+                    }
+                    opacity-0 group-hover:opacity-100 group-hover:left-2
+                  `}>
+                    {idx + 1}
+                  </div> */}
                 </div>
-
-                {/* 我的最愛按鈕 */}
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation(); // 防止點擊後同時切換卡片
-                    toggleFavorite(item);
-                  }}
-                  className={`
-                    p-2 rounded-full
-                    ${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-200'}
-                  `}
-                >
-                  {isFavorite ? (
-                    <Star className="w-5 h-5 text-yellow-400" />
-                  ) : (
-                    <StarOff className="w-5 h-5 text-gray-400" />
-                  )}
-                </button>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </>
