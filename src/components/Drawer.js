@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, Eye, EyeOff, Star, StarOff, BookOpen, Search, SortAsc } from 'lucide-react';
+import LockScrollButton from './LockScrollButton'
 
 const Drawer = ({
   showDrawer,
@@ -25,6 +26,7 @@ const Drawer = ({
 
   return (
     <>
+      {/* Backdrop */}
       <div
         className={`
           fixed inset-0 bg-black/50 backdrop-blur-sm z-20
@@ -34,6 +36,7 @@ const Drawer = ({
         onClick={() => setShowDrawer(false)}
       />
       
+      {/* Drawer */}
       <div
         className={`
           fixed inset-y-0 right-0 w-full max-w-sm z-30
@@ -43,11 +46,10 @@ const Drawer = ({
           ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}
         `}
       >
-
+        {/* Header */}
         <div className="relative h-16 overflow-hidden">
           <div className={`absolute inset-0 ${darkMode ? 'bg-blue-900' : 'bg-blue-500'}`}>
-            <div className="absolute -bottom-8 left-0 right-0 h-16">
-            </div>
+            <div className="absolute -bottom-8 left-0 right-0 h-16" />
           </div>
           <div className="relative flex justify-between items-center px-4 h-full">
             <h2 className="text-xl font-bold text-white flex items-center gap-2">
@@ -62,7 +64,9 @@ const Drawer = ({
             </button>
           </div>
         </div>
+        <LockScrollButton darkMode={darkMode} />
 
+        {/* Search Bar */}
         <div className="px-4 py-3">
           <div className={`
             relative rounded-xl overflow-hidden
@@ -87,6 +91,7 @@ const Drawer = ({
           </div>
         </div>
 
+        {/* Control Buttons */}
         <div className="px-4 py-2 flex gap-2">
           <button
             onClick={() => setDrawerShowChinese(!drawerShowChinese)}
@@ -121,7 +126,7 @@ const Drawer = ({
           </button>
         </div>
 
-        {/* 切換標籤 */}
+        {/* Tabs */}
         <div className="px-4 py-2 flex gap-2">
           <button
             onClick={() => {
@@ -165,7 +170,7 @@ const Drawer = ({
           </button>
         </div>
 
-        {/* 單字列表 */}
+        {/* Vocabulary List */}
         <div className="flex-1 overflow-y-auto px-4 py-2">
           <div className="space-y-2">
             {filteredVocabularies.map((item, idx) => {
@@ -201,30 +206,66 @@ const Drawer = ({
                   `}
                 >
                   <div className="flex justify-between items-start">
-                    <div>
-                      <div className={`
-                        text-lg font-medium
+                    <div className="flex items-start gap-3">
+                      {/* Index Number */}
+                      <span className={`
+                        text-sm font-medium px-2 py-1 rounded-md
                         ${isCurrent
-                          ? 'text-white'
+                          ? 'bg-blue-800 text-blue-100'
                           : darkMode
-                            ? 'text-gray-200'
-                            : 'text-gray-800'
+                            ? 'bg-gray-700 text-gray-300'
+                            : 'bg-gray-200 text-gray-600'
                         }
                       `}>
-                        {item.vocabulary}
-                      </div>
-                      <div className={`
-                        text-sm italic
-                        ${isCurrent
-                          ? 'text-blue-100'
-                          : darkMode
-                            ? 'text-gray-400'
-                            : 'text-gray-500'
-                        }
-                      `}>
-                        {item.partOfSpeech}
+                        {idx + 1}
+                      </span>
+                      
+                      {/* Word Content */}
+                      <div className="flex-1">
+                        {/* English Word */}
+                        <div className={`
+                          text-xl font-bold tracking-wide
+                          ${isCurrent
+                            ? 'text-white'
+                            : darkMode
+                              ? 'text-gray-200'
+                              : 'text-gray-800'
+                          }
+                        `}>
+                          {item.vocabulary}
+                        </div>
+                        
+                        {/* Part of Speech */}
+                        <div className={`
+                          text-sm font-medium mt-1
+                          ${isCurrent
+                            ? 'text-blue-200'
+                            : darkMode
+                              ? 'text-gray-400'
+                              : 'text-gray-500'
+                          }
+                        `}>
+                          {item.partOfSpeech}
+                        </div>
+                        
+                        {/* Chinese Translation */}
+                        {drawerShowChinese && (
+                          <div className={`
+                            mt-2 text-base font-medium
+                            ${isCurrent
+                              ? 'text-blue-100'
+                              : darkMode
+                                ? 'text-gray-400'
+                                : 'text-gray-600'
+                            }
+                          `}>
+                            {item.chinese}
+                          </div>
+                        )}
                       </div>
                     </div>
+
+                    {/* Favorite Button */}
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
@@ -252,33 +293,6 @@ const Drawer = ({
                       )}
                     </button>
                   </div>
-                  
-                  {drawerShowChinese && (
-                    <div className={`
-                      mt-2 text-sm
-                      ${isCurrent
-                        ? 'text-blue-100'
-                        : darkMode
-                          ? 'text-gray-400'
-                          : 'text-gray-600'
-                      }
-                    `}>
-                      {item.chinese}
-                    </div>
-                  )}
-                  
-                  {/* <div className={`
-                    absolute -left-1 top-1/2 -translate-y-1/2
-                    text-sm font-medium px-2 py-1 rounded-md
-                    transition-all duration-300
-                    ${darkMode
-                      ? 'bg-gray-700 text-gray-300'
-                      : 'bg-gray-200 text-gray-600'
-                    }
-                    opacity-0 group-hover:opacity-100 group-hover:left-2
-                  `}>
-                    {idx + 1}
-                  </div> */}
                 </div>
               );
             })}

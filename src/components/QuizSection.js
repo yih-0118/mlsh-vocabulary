@@ -81,7 +81,9 @@ const QuizSection = ({
         </div>
       </div>
 
-      <div className="space-y-2">
+      <div
+        className="grid grid-cols-2 gap-4"
+      >
         {quizOptions.map((item, idx) => {
           const displayText = quizType === 'enToZh' ? item.chinese : item.vocabulary;
           const isCorrectOption = item.vocabulary === quizQuestion.vocabulary ||

@@ -5,7 +5,7 @@ const IconButton = ({ icon: Icon, onClick, label, darkMode }) => {
     <button
       onClick={onClick}
       aria-label={label}
-      className={`p-3 rounded-lg transition-transform duration-300 hover:scale-105
+      className={`p-3 rounded-lg transition-transform duration-300 hover:scale-100
         ${
           darkMode
             ? 'bg-gray-700 hover:bg-gray-600 active:bg-gray-500'

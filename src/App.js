@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
-import CategorySelector from './components/CategorySelector';
+import Selector from './components/Selector';
 import { categoriesMapping } from './categoriesMapping';
 import FlashcardSection from './components/FlashcardSection';
 import QuizSection from './components/QuizSection';
 import Drawer from './components/Drawer';             
-import FlashcardControls from './components/FlashcardControls'; 
+import Footer from './components/Footer'; 
 import './App.css';
 
 const QUIZ_LENGTH = 10;
@@ -282,35 +282,41 @@ const App = () => {
   useEffect(() => {
     const fetchLocationAndSubmit = async () => {
       try {
-        const response = await fetch('https://ipapi.co/json/');
-        const locationData = await response.json();
+        // const response = await fetch('https://ipapi.co/json/');
+        // const locationData = await response.json();
 
-        const { city, region, country_name: country } = locationData;
-        const location = `${city}, ${region}, ${country}`;
+        // const { city, region, country_name: country } = locationData;
+        // const location = `${city}, ${region}, ${country}`;
 
         await fetch(
           'https://docs.google.com/forms/d/e/1FAIpQLSeCvxN309s_Rrm4nGKaVdP6s9aDmIWoCF-mK49_5nHBATcRqQ/formResponse',
           {
             method: 'POST',
+            mode: 'no-cors',
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
             },
             body: new URLSearchParams({
               'entry.271493781': '到',
-              'entry.819813079': location,
+              // 'entry.819813079': location,
             }),
           }
         );
       } catch (error) {
-        console.error(error);
+        console.log(error);
       }
     };
 
     fetchLocationAndSubmit();
   }, []); 
-
+  
+  const handleGoToIndex = (index) => {
+    setCurrentIndex(index);
+  };
+  
   // ----------------- JSX -----------------
   return (
+    
     <div
       className={`min-h-screen transition-colors duration-500 ${
         darkMode ? 'bg-gray-900' : 'bg-gray-50'
@@ -325,7 +331,7 @@ const App = () => {
 
       {/* ----------------- Main ----------------- */}
       <main className="pt-16 pb-24 max-w-xl mx-auto px-4">
-        <CategorySelector
+        <Selector
           darkMode={darkMode}
           category={category}
           setCategory={setCategory}
@@ -373,7 +379,7 @@ const App = () => {
 
       {/* ----------------- Flashcard 底部控制列 ----------------- */}
       {!isQuizMode && vocabularies.length > 0 && (
-        <FlashcardControls
+        <Footer
           darkMode={darkMode}
           showChinese={showChinese}
           setShowChinese={setShowChinese}
@@ -382,6 +388,7 @@ const App = () => {
           currentIndex={currentIndex}
           handlePrev={handlePrev}
           handleNext={handleNext}
+          handleGoToIndex={handleGoToIndex}
         />
       )}
 

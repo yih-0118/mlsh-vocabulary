@@ -2,15 +2,14 @@ import React from 'react';
 import ListboxSelect from './ListboxSelect';
 import { categoriesMapping } from '../categoriesMapping';
 
-const CategorySelector = ({
-  darkMode = false, // 預設值
+const Selector = ({
+  darkMode = false, 
   category,
   setCategory,
   subcategory,
   setSubcategory,
   categoryOptions,
 }) => {
-  // 計算選項
   const mappedCategoryOptions = categoryOptions.map((cat) => ({
     value: cat,
     label: cat,
@@ -47,4 +46,4 @@ const CategorySelector = ({
   );
 };
 
-export default CategorySelector;
+export default Selector;

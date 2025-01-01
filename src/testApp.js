@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { categoriesMapping } from './categoriesMapping';
 import { shuffleArray, fetchData } from './components/utils';
 import Header from './components/Header';
-import CategorySelector from './components/CategorySelector';
+import Selector from './components/Selector';
 import FlashcardSection from './components/FlashcardSection';
 import QuizSection from './components/QuizSection';
 import Drawer from './components/Drawer';
@@ -174,7 +174,7 @@ const App = () => {
       />
 
       <main className="pt-16 pb-24 max-w-6xl mx-auto px-4">
-        <CategorySelector
+        <Selector
           darkMode={darkMode}
           category={category}
           setCategory={setCategory}

@@ -17,11 +17,11 @@ const FlashcardSection = ({
   quizType,
   setQuizType,
 }) => {
-  const [isPlaying, setIsPlaying] = useState(false); // 控制音頻播放狀態
-  const audioRef = useRef(null); // 用來追踪音頻實例
+  const [isPlaying, setIsPlaying] = useState(false); 
+  const audioRef = useRef(null); 
 
   const handleRead = (word) => {
-    if (!word || isPlaying) return; // 如果正在播放音訊，則不重複
+    if (!word || isPlaying) return; 
     setIsPlaying(true);
 
     const encoded = encodeURIComponent(word);
@@ -31,25 +31,25 @@ const FlashcardSection = ({
     audioRef.current = audio;
 
     audio.play();
-    audio.addEventListener('ended', () => setIsPlaying(false)); // 播放完成後重設狀態
+    audio.addEventListener('ended', () => setIsPlaying(false)); 
   };
 
   const cancelRead = () => {
     if (audioRef.current) {
       audioRef.current.pause();
-      audioRef.current.currentTime = 0; // 重置播放位置
+      audioRef.current.currentTime = 0; 
       setIsPlaying(false);
     }
   };
 
   const handleNext = () => {
-    cancelRead(); // 每次切換卡片時取消音頻播放
+    cancelRead(); 
     setDirection('next');
     setCurrentIndex((prev) => (prev + 1) % vocabularies.length);
   };
 
   const handlePrev = () => {
-    cancelRead(); // 每次切換卡片時取消音頻播放
+    cancelRead(); 
     setDirection('prev');
     setCurrentIndex((prev) => (prev - 1 + vocabularies.length) % vocabularies.length);
   };

@@ -2,27 +2,46 @@
   "name": "mlsh-vocabulary-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://yih-0118/mlsh-vocabulary",
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@headlessui/react": "^2.2.0",
+    "@mui/material": "^6.3.0",
     "@radix-ui/react-icons": "^1.3.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "cra-template": "1.2.0",
-    "gh-pages": "^6.2.0",
+    "downshift": "^9.0.8",
+    "framer-motion": "^11.15.0",
     "jquery": "^3.7.1",
     "lucide-react": "^0.469.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
-    "react-scripts": "5.0.1",
-    "react-select": "^5.9.0"
+    "react-scripts": "^5.0.1",
+    "react-select": "^5.9.0",
+    "react-tree-select": "^0.0.4",
+    "react-use": "^17.6.0",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss-animate": "^1.0.7",
+    "workbox-background-sync": "^5.1.4",
+    "workbox-broadcast-update": "^5.1.4",
+    "workbox-cacheable-response": "^5.1.4",
+    "workbox-core": "^5.1.4",
+    "workbox-expiration": "^5.1.4",
+    "workbox-google-analytics": "^5.1.4",
+    "workbox-navigation-preload": "^5.1.4",
+    "workbox-precaching": "^5.1.4",
+    "workbox-range-requests": "^5.1.4",
+    "workbox-routing": "^5.1.4",
+    "workbox-strategies": "^5.1.4",
+    "workbox-streams": "^5.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +64,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.4.17",
+    "workbox-webpack-plugin": "^7.3.0"
   }
 }
