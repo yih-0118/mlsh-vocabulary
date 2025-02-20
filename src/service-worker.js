@@ -69,15 +69,21 @@ self.addEventListener('message', (event) => {
   }
 });
 
-// Any other custom service worker logic can go here.
-// 監聽 push
-// self.addEventListener('push', (event) => {
-//   console.log('push', event);
+self.addEventListener('install', (event) => {
+  self.skipWaiting(); 
+});
 
-//   let title = 'Server Push';
-//   let options = {
-//     body: 'Push Test',
-//     icon: './favicon-192x192.png'
-//   };
-//   event.waitUntil(self.registration.showNotification(title, options));
-// });
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cacheName) => {
+          return caches.delete(cacheName);
+        })
+      );
+    })
+  );
+  self.clients.claim();
+});
+
+// Any other custom service worker logic can go here.

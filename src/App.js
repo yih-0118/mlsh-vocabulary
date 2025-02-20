@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Selector from './components/Selector';
-import { categoriesMapping } from './categoriesMapping';
+import { categoriesMapping, loadCategoryData } from './categoriesMapping';
 import FlashcardSection from './components/FlashcardSection';
 import QuizSection from './components/QuizSection';
 import Drawer from './components/Drawer';             
 import Footer from './components/Footer'; 
-import './App.css';
+import About from './About'; 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const QUIZ_LENGTH = 10;
 const QUIZ_TIME_LIMIT = 10;
 
 const App = () => {
-  // ----------------- 狀態 -----------------
   const [category, setCategory] = useState('');
   const [subcategory, setSubcategory] = useState('');
   const [vocabularies, setVocabularies] = useState([]);
@@ -36,6 +36,8 @@ const App = () => {
   const [quizAnswered, setQuizAnswered] = useState(false);
   const [quizIsCorrect, setQuizIsCorrect] = useState(null);
   const [timeLeft, setTimeLeft] = useState(QUIZ_TIME_LIMIT);
+  const [missedWords, setMissedWords] = useState([]);
+  const [quizFinished, setQuizFinished] = useState(false);
 
   // ----------------- 我的最愛 -----------------
   const [favorites, setFavorites] = useState([]);           
@@ -45,6 +47,19 @@ const App = () => {
   // ----------------- 選擇篇章 -----------------
   const categoryOptions = Object.keys(categoriesMapping);
   const subcategoryOptions = category ? categoriesMapping[category] : [];
+
+  useEffect(() => {
+    (function(c, l, a, r, i, t, y) {
+      c[a] = c[a] || function() {
+        (c[a].q = c[a].q || []).push(arguments);
+      };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "pz99mdntpf");
+  }, []);
 
   // ----------------- 單元收藏 -----------------
   useEffect(() => {
@@ -79,31 +94,22 @@ const App = () => {
 
   // ----------------- 取得篇章對應的單字資料 -----------------
   useEffect(() => {
-    const fetchData = async (path) => {
-      try {
-        const res = await fetch(path);
-        if (!res.ok) throw new Error(`${res.status}`);
-        const data = await res.json();
+    const fetchData = async () => {
+      const data = await loadCategoryData(category, subcategory);
+      if (data) {
         setVocabularies(data.vocabularies || []);
         setCurrentIndex(0);
         setShowChinese(false);
         setFadeKey((prev) => prev + 1);
         resetQuiz();
-      } catch (err) {
-        console.error(err);
+      } else {
         setVocabularies([]);
         resetQuiz();
       }
     };
-
-    const subItem = categoriesMapping[category]?.find(
-      (s) => s.label === subcategory
-    );
-
-    if (subItem?.link) {
-      fetchData(subItem.link);
-    } else {
-      setVocabularies([]);
+  
+    if (category && subcategory) {
+      fetchData();
     }
   }, [category, subcategory]);
 
@@ -198,6 +204,10 @@ const App = () => {
     setQuizAnswered(false);
     setQuizIsCorrect(null);
     setTimeLeft(QUIZ_TIME_LIMIT);
+
+    // 新增：重置答錯單字與完成狀態
+    setMissedWords([]);
+    setQuizFinished(false);
   };
 
   const generateQuestion = () => {
@@ -231,6 +241,10 @@ const App = () => {
     setIsQuizMode(true);
     setQuizQuestionIndex(0);
     setQuizScore(0);
+
+    setMissedWords([]);
+    setQuizFinished(false);
+
     generateQuestion();
   };
 
@@ -239,6 +253,8 @@ const App = () => {
     const isCorrect = item.vocabulary === quizQuestion.vocabulary;
     if (isCorrect) {
       setQuizScore((prev) => prev + 1);
+    } else {
+      setMissedWords((prev) => [...prev, quizQuestion]);
     }
     setQuizIsCorrect(isCorrect);
     setQuizAnswered(true);
@@ -250,7 +266,7 @@ const App = () => {
       setQuizQuestionIndex(nextIndex);
       generateQuestion();
     } else {
-      resetQuiz();
+      setQuizFinished(true);
     }
   };
 
@@ -263,6 +279,8 @@ const App = () => {
           if (!quizAnswered) {
             setQuizIsCorrect(false);
             setQuizAnswered(true);
+
+            setMissedWords((old) => [...old, quizQuestion]);
           }
           clearInterval(timer);
           return 0;
@@ -277,38 +295,6 @@ const App = () => {
 
     return () => clearInterval(timer);
   }, [isQuizMode, quizQuestion, quizAnswered]);
-
-  // ----------------- 使用人數統計 -----------------
-  useEffect(() => {
-    const fetchLocationAndSubmit = async () => {
-      try {
-        // const response = await fetch('https://ipapi.co/json/');
-        // const locationData = await response.json();
-
-        // const { city, region, country_name: country } = locationData;
-        // const location = `${city}, ${region}, ${country}`;
-
-        await fetch(
-          'https://docs.google.com/forms/d/e/1FAIpQLSeCvxN309s_Rrm4nGKaVdP6s9aDmIWoCF-mK49_5nHBATcRqQ/formResponse',
-          {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams({
-              'entry.271493781': '到',
-              // 'entry.819813079': location,
-            }),
-          }
-        );
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchLocationAndSubmit();
-  }, []); 
   
   const handleGoToIndex = (index) => {
     setCurrentIndex(index);
@@ -316,104 +302,116 @@ const App = () => {
   
   // ----------------- JSX -----------------
   return (
-    
-    <div
-      className={`min-h-screen transition-colors duration-500 ${
-        darkMode ? 'bg-gray-900' : 'bg-gray-50'
-      }`}
-    >
-      {/* ----------------- Header ----------------- */}
-      <Header
-        darkMode={darkMode}
-        setDarkMode={setDarkMode}
-        setShowDrawer={setShowDrawer}
-      />
-
-      {/* ----------------- Main ----------------- */}
-      <main className="pt-16 pb-24 max-w-xl mx-auto px-4">
-        <Selector
+    <Router>
+      <div
+        className={`flex flex-col min-h-screen transition-colors duration-500 ${
+          darkMode ? 'bg-gray-900' : 'bg-gray-50'
+        }`}
+      >
+        {/* Header */}
+        <Header
           darkMode={darkMode}
-          category={category}
-          setCategory={setCategory}
-          subcategory={subcategory}
-          setSubcategory={setSubcategory}
-          categoryOptions={categoryOptions}
-          subcategoryOptions={subcategoryOptions}
+          setDarkMode={setDarkMode}
+          setShowDrawer={setShowDrawer}
         />
 
-        {/* ----------------- Flashcard  ----------------- */}
-        {!isQuizMode && (
-          <FlashcardSection
-            vocabularies={vocabularies}
-            currentIndex={currentIndex}
-            setCurrentIndex={setCurrentIndex}
+        {/* Routes */}
+        <div className="flex-grow">
+          <Routes>
+            <Route path="/" element={
+              <main className="pt-16 pb-24 max-w-xl mx-auto px-4">
+                <Selector
+                  darkMode={darkMode}
+                  category={category}
+                  setCategory={setCategory}
+                  subcategory={subcategory}
+                  setSubcategory={setSubcategory}
+                  categoryOptions={categoryOptions}
+                  subcategoryOptions={subcategoryOptions}
+                />
+
+                {/* Flashcard 模式 */}
+                {!isQuizMode && (
+                  <FlashcardSection
+                    vocabularies={vocabularies}
+                    currentIndex={currentIndex}
+                    setCurrentIndex={setCurrentIndex}
+                    showChinese={showChinese}
+                    setShowChinese={setShowChinese}
+                    darkMode={darkMode}
+                    fadeKey={fadeKey}
+                    direction={direction}
+                    setDirection={setDirection}
+                    startQuiz={startQuiz}
+                    quizType={quizType}
+                    setQuizType={setQuizType}
+                    sortedVocabularies={sortedVocabularies}
+                  />
+                )}
+
+                {/* Quiz 模式 */}
+                <QuizSection
+                  darkMode={darkMode}
+                  quizType={quizType}
+                  quizQuestionIndex={quizQuestionIndex}
+                  quizLength={QUIZ_LENGTH}
+                  timeLeft={timeLeft}
+                  quizQuestion={quizQuestion}
+                  quizOptions={quizOptions}
+                  quizAnswered={quizAnswered}
+                  quizIsCorrect={quizIsCorrect}
+                  quizScore={quizScore}
+                  handleAnswer={handleAnswer}
+                  handleNextQuestion={handleNextQuestion}
+                  quizFinished={quizFinished}
+                  missedWords={missedWords}
+                  resetQuiz={resetQuiz}
+                />
+              </main>
+            } />
+
+            <Route path="/About" element={<About darkMode={darkMode} />} />
+          </Routes>
+        </div>
+
+        {/* Flashcard 底部控制列 (非測驗模式才顯示) */}
+        {!isQuizMode && vocabularies.length > 0 && (
+          <Footer
+            darkMode={darkMode}
             showChinese={showChinese}
             setShowChinese={setShowChinese}
-            darkMode={darkMode}
-            fadeKey={fadeKey}
-            direction={direction}
-            setDirection={setDirection}
-            startQuiz={startQuiz}
-            quizType={quizType}
-            setQuizType={setQuizType}
-            sortedVocabularies={sortedVocabularies}
+            handleRead={handleRead}
+            vocabularies={vocabularies}
+            currentIndex={currentIndex}
+            handlePrev={handlePrev}
+            handleNext={handleNext}
+            handleGoToIndex={handleGoToIndex}
           />
         )}
 
-        {/* ----------------- 測驗模式 ----------------- */}
-        <QuizSection
+        {/* Drawer (側邊單字列表) */}
+        <Drawer
+          showDrawer={showDrawer}
+          setShowDrawer={setShowDrawer}
           darkMode={darkMode}
-          quizType={quizType}
-          quizQuestionIndex={quizQuestionIndex}
-          quizLength={QUIZ_LENGTH}
-          timeLeft={timeLeft}
-          quizQuestion={quizQuestion}
-          quizOptions={quizOptions}
-          quizAnswered={quizAnswered}
-          quizIsCorrect={quizIsCorrect}
-          quizScore={quizScore}
-          handleAnswer={handleAnswer}
-          handleNextQuestion={handleNextQuestion}
-        />
-      </main>
-
-      {/* ----------------- Flashcard 底部控制列 ----------------- */}
-      {!isQuizMode && vocabularies.length > 0 && (
-        <Footer
-          darkMode={darkMode}
-          showChinese={showChinese}
-          setShowChinese={setShowChinese}
-          handleRead={handleRead}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          drawerShowChinese={drawerShowChinese}
+          setDrawerShowChinese={setDrawerShowChinese}
+          sortAZ={sortAZ}
+          setSortAZ={setSortAZ}
+          showOnlyFavorites={showOnlyFavorites}
+          setShowOnlyFavorites={setShowOnlyFavorites}
+          filteredVocabularies={filteredVocabularies}
+          favorites={favorites}
+          toggleFavorite={toggleFavorite}
           vocabularies={vocabularies}
           currentIndex={currentIndex}
-          handlePrev={handlePrev}
-          handleNext={handleNext}
-          handleGoToIndex={handleGoToIndex}
+          setCurrentIndex={setCurrentIndex}
+          setFadeKey={setFadeKey}
         />
-      )}
-
-      {/* ----------------- Drawer (側邊單字列表) ----------------- */}
-      <Drawer
-        showDrawer={showDrawer}
-        setShowDrawer={setShowDrawer}
-        darkMode={darkMode}
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        drawerShowChinese={drawerShowChinese}
-        setDrawerShowChinese={setDrawerShowChinese}
-        sortAZ={sortAZ}
-        setSortAZ={setSortAZ}
-        showOnlyFavorites={showOnlyFavorites}
-        setShowOnlyFavorites={setShowOnlyFavorites}
-        filteredVocabularies={filteredVocabularies}
-        favorites={favorites}
-        toggleFavorite={toggleFavorite}
-        vocabularies={vocabularies}
-        currentIndex={currentIndex}
-        setCurrentIndex={setCurrentIndex}
-        setFadeKey={setFadeKey}
-      />
-    </div>
+      </div>
+    </Router>
   );
 };
 

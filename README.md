@@ -1,6 +1,53 @@
-# Getting Started with Create React App
+# Vocabulary Cards Built with React.js
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## How to Use
+
+### Vocabulary Database
+
+- All vocabulary words are stored in JSON format. Below is an example:
+
+```json
+{
+    "vocabularies": [
+        {
+            "vocabulary": "passerby",
+            "partOfSpeech": "n.",
+            "chinese": "路人"
+        }
+    ]
+}
+```
+
+### Loading the Vocabulary Database
+
+- The vocabulary categories are mapped in `/src/categoriesMapping.js`.
+
+```javascript
+export const categoriesMapping = {
+  Book1: [
+    { label: 'Lesson 1', link: '../json/B1 L1.json' },
+    { label: 'Lesson 2', link: '../json/B1 L2.json' },
+    { label: 'Lesson 3', link: '../json/B1 L3.json' },
+    { label: 'Lesson 4', link: '../json/B1 L4.json' },
+    { label: 'Lesson 5', link: '../json/B1 L5.json' },
+    { label: 'Lesson 6', link: '../json/B1 L6.json' },
+    { label: 'Lesson 7', link: '../json/B1 L7.json' },
+    { label: 'Lesson 8', link: '../json/B1 L8.json' },
+    { label: 'Lesson 9', link: '../json/B1 L9.json' },
+    { label: 'Review 1', link: '../json/B1 review 1.json' },
+    { label: 'Review 2', link: '../json/B1 review 2.json' },
+    { label: 'Review 3', link: '../json/B1 review 3.json' },
+  ],
+};
+```
+
+- `Book1` represents a categories.
+- Each `label` corresponds to a lesson.
+- Each `link` provides the source file.
 
 ## Available Scripts
 
@@ -37,7 +84,7 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However, we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
 ## Learn More
 

@@ -12,11 +12,66 @@ const QuizSection = ({
   quizIsCorrect,
   quizScore,
   handleAnswer,
-  handleNextQuestion
+  handleNextQuestion,
+  quizFinished,
+  missedWords,
+  resetQuiz
 }) => {
   const [selectedOption, setSelectedOption] = useState(null);
+  if (!quizQuestion && !quizFinished) {
+    return null;
+  }
 
-  if (!quizQuestion) return null;
+  if (quizFinished) {
+    return (
+      <div
+        className={`
+          p-4 rounded-2xl backdrop-blur-xl shadow-lg 
+          transition-all duration-500
+          ${darkMode
+            ? 'bg-gray-900/70 text-gray-100'
+            : 'bg-white/70 text-gray-800'
+          }
+        `}
+      >
+        <h2 className="text-lg font-semibold mb-4">
+          測驗結束，總分：{quizScore} / {quizLength}
+        </h2>
+
+        {missedWords.length > 0 ? (
+          <div>
+            <h3 className="text-md font-medium mb-2">你錯過的單字：</h3>
+            <ul className="list-disc list-inside space-y-1">
+              {missedWords.map((word, idx) => (
+                <li key={idx}>
+                  <strong className="mr-2">{word.vocabulary}</strong>
+                  - {word.chinese}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <p className="text-md text-green-500">恭喜你全部答對！</p>
+        )}
+
+        <button
+          onClick={resetQuiz}
+          className={`
+            mt-4 w-full py-3 px-4 rounded-xl font-medium
+            backdrop-blur-lg
+            transition-all duration-300
+            active:scale-95
+            ${darkMode
+              ? 'bg-blue-500/20 text-blue-200 border-2 border-blue-400'
+              : 'bg-blue-500/10 text-blue-700 border-2 border-blue-500'
+            }
+          `}
+        >
+          回主畫面
+        </button>
+      </div>
+    );
+  }
 
   const handleOptionClick = (item) => {
     if (quizAnswered) return;
@@ -46,7 +101,9 @@ const QuizSection = ({
           <h2 className="text-lg font-semibold">
             題目：{quizQuestionIndex + 1} / {quizLength}
           </h2>
-          <p className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+          <p
+            className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}
+          >
             剩餘：{timeLeft} 秒
           </p>
         </div>
@@ -81,12 +138,11 @@ const QuizSection = ({
         </div>
       </div>
 
-      <div
-        className="grid grid-cols-2 gap-4"
-      >
+      <div className="grid grid-cols-2 gap-4">
         {quizOptions.map((item, idx) => {
           const displayText = quizType === 'enToZh' ? item.chinese : item.vocabulary;
-          const isCorrectOption = item.vocabulary === quizQuestion.vocabulary ||
+          const isCorrectOption =
+            item.vocabulary === quizQuestion.vocabulary ||
             item.chinese === quizQuestion.chinese;
 
           const isSelected = selectedOption === item;
@@ -97,12 +153,12 @@ const QuizSection = ({
               disabled={quizAnswered}
               onClick={() => handleOptionClick(item)}
               className={`
-              w-full text-left p-4 rounded-xl
-              backdrop-blur-sm
-              transition-all duration-300
-              active:scale-95
-              ${isSelected ? 'scale-110' : ''}  
-              ${quizAnswered
+                w-full text-left p-4 rounded-xl
+                backdrop-blur-sm
+                transition-all duration-300
+                active:scale-95
+                ${isSelected ? 'scale-110' : ''}  
+                ${quizAnswered
                   ? isCorrectOption
                     ? darkMode
                       ? 'bg-green-800/50 border-2 border-green-400 text-green-300'
@@ -114,7 +170,7 @@ const QuizSection = ({
                     ? 'bg-gray-800/70 hover:bg-gray-700 text-gray-300 border border-gray-600'
                     : 'bg-white hover:bg-blue-100 border border-blue-300 text-blue-700'
                 }
-      `}
+              `}
             >
               {displayText}
             </button>

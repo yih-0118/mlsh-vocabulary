@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { X, Eye, EyeOff, Star, StarOff, BookOpen, Search, SortAsc } from 'lucide-react';
-import LockScrollButton from './LockScrollButton'
+import React, { useState, useEffect, useRef } from 'react';
+import { X, Eye, EyeOff, Star, StarOff, Search, SortAsc } from 'lucide-react';
+import IconButton from './IconButton';
 
 const Drawer = ({
   showDrawer,
@@ -12,8 +12,7 @@ const Drawer = ({
   setDrawerShowChinese,
   sortAZ,
   setSortAZ,
-  showOnlyFavorites,
-  setShowOnlyFavorites,
+  setShowOnlyFavorites, 
   filteredVocabularies,
   favorites,
   toggleFavorite,
@@ -23,10 +22,19 @@ const Drawer = ({
   setFadeKey,
 }) => {
   const [activeTab, setActiveTab] = useState('all');
+  const itemRefs = useRef([]);
+
+  useEffect(() => {
+    if (itemRefs.current[currentIndex]) {
+      itemRefs.current[currentIndex].scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+      });
+    }
+  }, [currentIndex]);
 
   return (
     <>
-      {/* Backdrop */}
       <div
         className={`
           fixed inset-0 bg-black/50 backdrop-blur-sm z-20
@@ -35,8 +43,7 @@ const Drawer = ({
         `}
         onClick={() => setShowDrawer(false)}
       />
-      
-      {/* Drawer */}
+
       <div
         className={`
           fixed inset-y-0 right-0 w-full max-w-sm z-30
@@ -46,28 +53,16 @@ const Drawer = ({
           ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}
         `}
       >
-        {/* Header */}
-        <div className="relative h-16 overflow-hidden">
-          <div className={`absolute inset-0 ${darkMode ? 'bg-blue-900' : 'bg-blue-500'}`}>
-            <div className="absolute -bottom-8 left-0 right-0 h-16" />
-          </div>
-          <div className="relative flex justify-between items-center px-4 h-full">
-            <h2 className="text-xl font-bold text-white flex items-center gap-2">
-              <BookOpen className="w-6 h-6" />
-              單字列表
-            </h2>
-            <button
-              onClick={() => setShowDrawer(false)}
-              className="p-2 rounded-full hover:bg-white/20 transition-colors"
-            >
-              <X className="w-6 h-6 text-white" />
-            </button>
-          </div>
+        <div className="mt-2 file:relative h-14 flex justify-end items-center px-4">
+          <IconButton
+            icon={X}
+            onClick={() => setShowDrawer(false)}
+            label="Close Drawer"
+            darkMode={darkMode}
+          />
         </div>
-        <LockScrollButton darkMode={darkMode} />
 
-        {/* Search Bar */}
-        <div className="px-4 py-3">
+        <div className="px-4 py-2">
           <div className={`
             relative rounded-xl overflow-hidden
             ${darkMode ? 'bg-gray-800' : 'bg-white'}
@@ -91,7 +86,6 @@ const Drawer = ({
           </div>
         </div>
 
-        {/* Control Buttons */}
         <div className="px-4 py-2 flex gap-2">
           <button
             onClick={() => setDrawerShowChinese(!drawerShowChinese)}
@@ -99,8 +93,8 @@ const Drawer = ({
               flex-1 py-2 px-3 rounded-xl
               flex items-center justify-center gap-2
               transition-all duration-300
-              ${darkMode 
-                ? 'bg-gray-800 hover:bg-gray-700 text-gray-200' 
+              ${darkMode
+                ? 'bg-gray-800 hover:bg-gray-700 text-gray-200'
                 : 'bg-white hover:bg-gray-100 text-gray-800'}
               shadow-md hover:shadow-lg
             `}
@@ -115,8 +109,8 @@ const Drawer = ({
               flex-1 py-2 px-3 rounded-xl
               flex items-center justify-center gap-2
               transition-all duration-300
-              ${darkMode 
-                ? 'bg-gray-800 hover:bg-gray-700 text-gray-200' 
+              ${darkMode
+                ? 'bg-gray-800 hover:bg-gray-700 text-gray-200'
                 : 'bg-white hover:bg-gray-100 text-gray-800'}
               shadow-md hover:shadow-lg
             `}
@@ -126,7 +120,6 @@ const Drawer = ({
           </button>
         </div>
 
-        {/* Tabs */}
         <div className="px-4 py-2 flex gap-2">
           <button
             onClick={() => {
@@ -170,7 +163,6 @@ const Drawer = ({
           </button>
         </div>
 
-        {/* Vocabulary List */}
         <div className="flex-1 overflow-y-auto px-4 py-2">
           <div className="space-y-2">
             {filteredVocabularies.map((item, idx) => {
@@ -180,6 +172,7 @@ const Drawer = ({
               return (
                 <div
                   key={idx}
+                  ref={(el) => itemRefs.current[idx] = el}
                   onClick={() => {
                     const realIndex = vocabularies.findIndex(
                       (v) => v.vocabulary === item.vocabulary
@@ -207,7 +200,6 @@ const Drawer = ({
                 >
                   <div className="flex justify-between items-start">
                     <div className="flex items-start gap-3">
-                      {/* Index Number */}
                       <span className={`
                         text-sm font-medium px-2 py-1 rounded-md
                         ${isCurrent
@@ -219,10 +211,8 @@ const Drawer = ({
                       `}>
                         {idx + 1}
                       </span>
-                      
-                      {/* Word Content */}
+
                       <div className="flex-1">
-                        {/* English Word */}
                         <div className={`
                           text-xl font-bold tracking-wide
                           ${isCurrent
@@ -234,8 +224,7 @@ const Drawer = ({
                         `}>
                           {item.vocabulary}
                         </div>
-                        
-                        {/* Part of Speech */}
+
                         <div className={`
                           text-sm font-medium mt-1
                           ${isCurrent
@@ -247,25 +236,28 @@ const Drawer = ({
                         `}>
                           {item.partOfSpeech}
                         </div>
-                        
-                        {/* Chinese Translation */}
-                        {drawerShowChinese && (
-                          <div className={`
+
+                        <div
+                          className={`
                             mt-2 text-base font-medium
+                            transition-all duration-300 ease
+                            ${drawerShowChinese
+                              ? 'opacity-100 max-h-20 transform translate-y-0'
+                              : 'opacity-0 max-h-0 transform -translate-y-2 overflow-hidden'
+                            }
                             ${isCurrent
                               ? 'text-blue-100'
                               : darkMode
                                 ? 'text-gray-400'
                                 : 'text-gray-600'
                             }
-                          `}>
-                            {item.chinese}
-                          </div>
-                        )}
+                          `}
+                        >
+                          {item.chinese}
+                        </div>
                       </div>
                     </div>
 
-                    {/* Favorite Button */}
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
