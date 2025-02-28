@@ -44,7 +44,7 @@ const Flashcard = ({
             <div className="flex flex-col items-center space-y-4">
                 <h2
                     className={`
-                        text-4xl font-semibold
+                        text-4xl font-semibold m-1.5
                         ${darkMode ? 'text-gray-100' : 'text-gray-800'}
                         tracking-tight
                     `}
@@ -53,7 +53,7 @@ const Flashcard = ({
                 </h2>
                 <p
                     className={`
-                        text-lg
+                        text-xl
                         ${darkMode ? 'text-gray-400' : 'text-gray-500'}
                         font-medium
                     `}

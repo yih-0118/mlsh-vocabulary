@@ -13,7 +13,7 @@ const IconButton = ({ icon: Icon, onClick, label, darkMode }) => {
         } flex items-center justify-center`}
     >
       <Icon
-        className={`w-6 h-6 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}
+        className={`w-5.5 h-5.5 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}
       />
     </button>
   );

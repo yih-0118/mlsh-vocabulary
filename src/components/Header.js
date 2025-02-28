@@ -36,19 +36,9 @@ const Header = ({ darkMode, setDarkMode, setShowDrawer }) => {
                   明倫單字
                 </h1>
               </a>
-              {visitCount !== null && (
-                <div
-                  className={`
-                    text-sm px-2 py-0.5 rounded-full
-                  ${darkMode ? 'bg-gray-700 text-gray-200' : 'bg-gray-100 text-gray-700'}
-                  `}
-                >
-                </div>
-              )}
             </div>
           </div>
 
-          {/* Header 右側功能按鈕 */}
           <div className="flex items-center space-x-2">
             <IconButton
               icon={Info}
